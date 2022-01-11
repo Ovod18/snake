@@ -2,8 +2,8 @@ import pygame
 import random
 import time
 
-DISPLAY_WIDTH = 360
-DISPLAY_HEIGHT = 480
+DISPLAY_WIDTH = 1024
+DISPLAY_HEIGHT = 1280
 X_CENTRE = DISPLAY_WIDTH / 2
 Y_CENTRE = DISPLAY_HEIGHT / 2
 FPS = 20
@@ -30,14 +30,14 @@ message = font.render(text, True, RED)
 
 """Setting the coordinates of snake."""
 
-x1 = X_CENTRE
-y1 = Y_CENTRE
-x1_change = 0
-y1_change = 0
+snake_x = X_CENTRE
+snake_y = Y_CENTRE
+snake_x_change = 0
+snake_y_change = 0
 
 """Drowing the start screen and the snake."""
 screen.fill(BLACK)
-pygame.draw.rect(screen, GREEN, [x1, y1,
+pygame.draw.rect(screen, GREEN, [snake_x, snake_y,
                  SNAKE_WIDTH, SNAKE_WIDTH])
 pygame.display.update()
 
@@ -45,26 +45,28 @@ pygame.display.update()
 running = True
 while running:
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if (event.type == pygame.QUIT):
             running = False
 
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_LEFT:
-            x1_change = -10
-            y1_change = 0
+            snake_x_change = -10
+            snake_y_change = 0
         elif event.key == pygame.K_RIGHT:
-            x1_change = 10
-            y1_change = 0
+            snake_x_change = 10
+            snake_y_change = 0
         elif event.key == pygame.K_UP:
-            y1_change = -10
-            x1_change = 0
+            snake_y_change = -10
+            snake_x_change = 0
         elif event.key == pygame.K_DOWN:
-            y1_change = 10
-            x1_change = 0
+            snake_y_change = 10
+            snake_x_change = 0
+        elif event.key == pygame.K_ESCAPE:
+            running = False
 
-    if ((x1 >= DISPLAY_WIDTH) or (x1 < 0) or
-           (y1 >= DISPLAY_HEIGHT) or
-           (y1 < 0)):
+    if ((snake_x >= DISPLAY_WIDTH) or (snake_x < 0) or
+           (snake_y >= DISPLAY_HEIGHT) or
+           (snake_y < 0)):
          text = "WASTED"
          message = font.render(text, True, RED)
          screen.blit(message, [X_CENTRE, Y_CENTRE])
@@ -72,11 +74,11 @@ while running:
          time.sleep(5)
          running = False
 
-    x1 += x1_change
-    y1 += y1_change
+    snake_x += snake_x_change
+    snake_y += snake_y_change
 
     screen.fill(BLACK)
-    pygame.draw.rect(screen, GREEN, [x1, y1,
+    pygame.draw.rect(screen, GREEN, [snake_x, snake_y,
                      SNAKE_WIDTH, SNAKE_WIDTH])
 
     pygame.display.update()

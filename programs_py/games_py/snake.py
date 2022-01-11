@@ -3,7 +3,7 @@ import random
 
 WIDTH = 360
 HEIGHT = 480
-FPS = 30                                              # setting the FPS
+FPS = 220                                              # setting the FPS
 WHITE = (255, 255, 255)                               # setting the colors 
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
@@ -18,22 +18,24 @@ pygame.display.set_caption("My snake")
 clock = pygame.time.Clock()
 
 
-x1 = 300                                              # setting the coordinates 
-y1 = 300                                              # of snake
-x1_change = 0                                         # setting the values of 
-y1_change = 0                                         # the coordinates change
+x1 = 300                                            # Setting the coordinates 
+y1 = 300                                            # of snake.  
+x1_change = 0                                       # Setting the values of 
+y1_change = 0                                       # the coordinates change.
 
 
-screen.fill(WHITE)                                    # paint the display 
-                                                      # in WHITE
-pygame.draw.rect(screen, BLUE, [x1, y1, SNAKE_WIDTH, SNAKE_WIDTH])      # draw the snake
-                                                      # in x1, y1 coordinates
-pygame.display.update()                               # update the display
+screen.fill(BLACK)                                  # Paint the display  
+                                                    # in BLACK. 
+pygame.draw.rect(screen, GREEN, [x1, y1,
+                 SNAKE_WIDTH, SNAKE_WIDTH])     
+                                                    # Draw the snake
+                                                    # in x1, y1 coordinates.
+pygame.display.update()                             # Update the display.
 
 
-running = True                                        # creating a game cycle
+running = True                                      # Creating the game cycle.
 while running:
-    for event in pygame.event.get():                  # check for closing window
+    for event in pygame.event.get():                # Check for closing window.
         if event.type == pygame.QUIT:
             running = False
 
@@ -54,11 +56,12 @@ while running:
     x1 += x1_change
     y1 += y1_change
 
-    screen.fill(WHITE)                                # paint the display 
-                                                      # in WHITE
-    pygame.draw.rect(screen, BLUE, [x1, y1, SNAKE_WIDTH, SNAKE_WIDTH])
+    screen.fill(BLACK)                              # Paint the display
+                                                    # in BLACK.
+    pygame.draw.rect(screen, GREEN, [x1, y1,
+                     SNAKE_WIDTH, SNAKE_WIDTH])
 
-    pygame.display.update()                           # update the display
+    pygame.display.update()                         # Update the display.
     clock.tick(FPS) 
 
 

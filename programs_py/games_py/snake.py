@@ -9,6 +9,7 @@ BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+SNAKE_WIDTH = 10
 
 pygame.init()                                         # creating the main window
 pygame.mixer.init()
@@ -25,7 +26,7 @@ y1_change = 0                                         # the coordinates change
 
 screen.fill(WHITE)                                    # paint the display 
                                                       # in WHITE
-pygame.draw.rect(screen, BLUE, [x1, y1, 10, 10])      # draw the snake
+pygame.draw.rect(screen, BLUE, [x1, y1, SNAKE_WIDTH, SNAKE_WIDTH])      # draw the snake
                                                       # in x1, y1 coordinates
 pygame.display.update()                               # update the display
 
@@ -55,7 +56,7 @@ while running:
 
     screen.fill(WHITE)                                # paint the display 
                                                       # in WHITE
-    pygame.draw.rect(screen, BLUE, [x1, y1, 10, 10])
+    pygame.draw.rect(screen, BLUE, [x1, y1, SNAKE_WIDTH, SNAKE_WIDTH])
 
     pygame.display.update()                           # update the display
     clock.tick(FPS) 

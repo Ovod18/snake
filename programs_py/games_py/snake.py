@@ -1,8 +1,11 @@
 import pygame
 import random
+import time
 
 DISPLAY_WIDTH = 360
 DISPLAY_HEIGHT = 480
+X_CENTRE = DISPLAY_WIDTH / 2
+Y_CENTRE = DISPLAY_HEIGHT / 2
 FPS = 20
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -20,9 +23,15 @@ pygame.display.set_caption("My snake")
 
 clock = pygame.time.Clock()
 
+"""Creating font and text"""
+font = pygame.font.Font(None, 65)
+text = "My text"
+message = font.render(text, True, RED)
+
 """Setting the coordinates of snake."""
-x1 = DISPLAY_WIDTH  / 2
-y1 = DISPLAY_HEIGHT / 2
+
+x1 = X_CENTRE
+y1 = Y_CENTRE
 x1_change = 0
 y1_change = 0
 
@@ -56,12 +65,16 @@ while running:
     if ((x1 >= DISPLAY_WIDTH) or (x1 < 0) or
            (y1 >= DISPLAY_HEIGHT) or
            (y1 < 0)):
-        running = False
+         text = "WASTED"
+         message = font.render(text, True, RED)
+         screen.blit(message, [X_CENTRE, Y_CENTRE])
+         pygame.display.update()
+         time.sleep(5)
+         running = False
 
     x1 += x1_change
     y1 += y1_change
 
-"""Rendering and updating the screen"""
     screen.fill(BLACK)
     pygame.draw.rect(screen, GREEN, [x1, y1,
                      SNAKE_WIDTH, SNAKE_WIDTH])

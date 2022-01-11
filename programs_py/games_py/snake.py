@@ -3,7 +3,7 @@ import random
 
 DISPLAY_WIDTH = 360
 DISPLAY_HEIGHT = 480
-FPS = 20                                           # setting the FPS
+FPS = 20                                            # setting the FPS
 WHITE = (255, 255, 255)                             # setting the colors 
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
@@ -34,7 +34,7 @@ pygame.display.update()                             # Update the display.
 
 running = True                                      # Creating the game cycle.
 while running:
-    for event in pygame.event.get():                # Check for closing window.
+    for event in pygame.event.get():                
         if event.type == pygame.QUIT:
             running = False
 

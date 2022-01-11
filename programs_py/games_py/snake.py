@@ -5,16 +5,16 @@ dis = pygame.display.set_mode((400,300))
 pygame.display.update()
 pygame.display.set_caption('Snake')
 
-white = (255, 255, 255)
+white = (255, 255, 255)                       # setting the colors
 red = (255, 0, 0)
 black = (0, 0, 0)
 
-x1 = 300
-y1 = 300
-x1_change = 0
-y1_change = 0
+x1 = 300                                      # setting the coordinates 
+y1 = 300                                      # of snake
+x1_change = 0                                 # setting the values of 
+y1_change = 0                                 # the coordinates change
 
-clock = pygame.time.Clock()
+clock = pygame.time.Clock()                   # setting the FPS 
 
 game_over = False
 while not game_over:

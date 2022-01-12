@@ -28,12 +28,16 @@ snake_x = X_CENTRE
 snake_y = Y_CENTRE
 snake_x_change = 0
 snake_y_change = 0
+snake_body_x = [snake_x]
+snake_body_y = [snake_y]
 food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
 food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
 
 """Setting other values"""
 score = 0
 course = ""
+
+
 
 """ Creating the game cycle."""
 running = True
@@ -80,15 +84,19 @@ while running:
         food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
         food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
         score = score + 1
+        snake_body_x.append(snake_x)
+        snake_body_y.append(snake_y)
 
     screen.fill(BLACK)
+
     font = pygame.font.Font(None, 30)
     text = "Your score: " + str(score) + " Course: " + course
     message = font.render(text, True, YELLOW)
     screen.blit(message, [10, 10])
 
     pygame.draw.rect(screen, GREEN, [snake_x, snake_y,
-                     SNAKE_WIDTH, SNAKE_WIDTH])
+                SNAKE_WIDTH, SNAKE_WIDTH])
+
     pygame.draw.rect(screen, RED, [food_x, food_y,
                      SNAKE_WIDTH, SNAKE_WIDTH])
 

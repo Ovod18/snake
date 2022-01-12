@@ -28,8 +28,8 @@ snake_x = X_CENTRE
 snake_y = Y_CENTRE
 snake_x_change = 0
 snake_y_change = 0
-snake_body_x = [snake_x]
-snake_body_y = [snake_y]
+snake_body_x = []
+snake_body_y = []
 food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
 food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
 

@@ -2,11 +2,11 @@ import pygame
 import random
 import time
 
-DISPLAY_WIDTH = 480
-DISPLAY_HEIGHT = 800
+DISPLAY_WIDTH = 360
+DISPLAY_HEIGHT = 360
 X_CENTRE = DISPLAY_WIDTH / 2
 Y_CENTRE = DISPLAY_HEIGHT / 2
-FPS = 5
+FPS = 10
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
@@ -28,8 +28,8 @@ snake_x = X_CENTRE
 snake_y = Y_CENTRE
 snake_x_change = 0
 snake_y_change = 0
-snake_body_x = []
-snake_body_y = []
+snake_body_x = [snake_x]
+snake_body_y = [snake_y]
 food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
 food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
 
@@ -66,9 +66,9 @@ while running:
         elif event.key == pygame.K_ESCAPE:
             running = False
 
-    if ((snake_x >= DISPLAY_WIDTH) or (snake_x < 0) or
-           (snake_y >= DISPLAY_HEIGHT) or
-           (snake_y < 0)):
+    if ((snake_body_x[0] >= DISPLAY_WIDTH) or (snake_body_x[0] < 0) or
+           (snake_body_y[0] >= DISPLAY_HEIGHT) or
+           (snake_body_y[0] < 0)):
          font = pygame.font.Font(None, 65)
          text = "WASTED"
          message = font.render(text, True, RED)
@@ -77,25 +77,33 @@ while running:
          time.sleep(5)
          running = False
 
-    snake_x += snake_x_change
-    snake_y += snake_y_change
+    iterator = len(snake_body_x) - 1
+    while(iterator > -1):
+        if (iterator == 0):
+            snake_body_x[iterator] += snake_x_change
+            snake_body_y[iterator] += snake_y_change
+            break
+        snake_body_x[iterator] = snake_body_x[iterator - 1]
+        snake_body_y[iterator] = snake_body_y[iterator - 1]
+        iterator -= 1
 
-    if (snake_x==food_x) and (snake_y==food_y):
+    if (snake_body_x[0]==food_x) and (snake_body_y[0]==food_y):
         food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
         food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
         score = score + 1
-        snake_body_x.append(snake_x)
-        snake_body_y.append(snake_y)
+        snake_body_x.append(snake_body_x[-1] - snake_x_change)
+        snake_body_y.append(snake_body_y[-1] - snake_y_change)
 
     screen.fill(BLACK)
 
     font = pygame.font.Font(None, 30)
-    text = "Your score: " + str(score) + " Course: " + course
+    text = "Your score: " + str(score)
     message = font.render(text, True, YELLOW)
     screen.blit(message, [10, 10])
 
-    pygame.draw.rect(screen, GREEN, [snake_x, snake_y,
-                SNAKE_WIDTH, SNAKE_WIDTH])
+    for i in range(len(snake_body_x)):
+        pygame.draw.rect(screen, GREEN, [snake_body_x[i],
+                         snake_body_y[i], SNAKE_WIDTH, SNAKE_WIDTH])
 
     pygame.draw.rect(screen, RED, [food_x, food_y,
                      SNAKE_WIDTH, SNAKE_WIDTH])

@@ -2,11 +2,11 @@ import pygame
 import random
 import time
 
-DISPLAY_WIDTH = 1024
-DISPLAY_HEIGHT = 1280
+DISPLAY_WIDTH = 480
+DISPLAY_HEIGHT = 800
 X_CENTRE = DISPLAY_WIDTH / 2
 Y_CENTRE = DISPLAY_HEIGHT / 2
-FPS = 20
+FPS = 5
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
@@ -34,12 +34,8 @@ snake_x = X_CENTRE
 snake_y = Y_CENTRE
 snake_x_change = 0
 snake_y_change = 0
-
-"""Drowing the start screen and the snake."""
-screen.fill(BLACK)
-pygame.draw.rect(screen, GREEN, [snake_x, snake_y,
-                 SNAKE_WIDTH, SNAKE_WIDTH])
-pygame.display.update()
+food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
+food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
 
 """ Creating the game cycle."""
 running = True
@@ -77,8 +73,14 @@ while running:
     snake_x += snake_x_change
     snake_y += snake_y_change
 
+    if (snake_x==food_x) and (snake_y==food_y):
+        food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
+        food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
+
     screen.fill(BLACK)
     pygame.draw.rect(screen, GREEN, [snake_x, snake_y,
+                     SNAKE_WIDTH, SNAKE_WIDTH])
+    pygame.draw.rect(screen, RED, [food_x, food_y,
                      SNAKE_WIDTH, SNAKE_WIDTH])
 
     pygame.display.update()

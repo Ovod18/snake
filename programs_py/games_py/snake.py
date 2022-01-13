@@ -24,12 +24,10 @@ pygame.display.set_caption("My snake")
 clock = pygame.time.Clock()
 
 """Setting the coordinates of snake."""
-snake_x = X_CENTRE
-snake_y = Y_CENTRE
 snake_x_change = 0
 snake_y_change = 0
-snake_body_x = [snake_x]
-snake_body_y = [snake_y]
+snake_body_x = [X_CENTRE]
+snake_body_y = [Y_CENTRE]
 food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
 food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
 
@@ -46,6 +44,7 @@ while running:
         if (event.type == pygame.QUIT):
             running = False
 
+    """Setting the course of movement."""
     if event.type == pygame.KEYDOWN:
         if (event.key==pygame.K_LEFT) and (course!="RIGHT"):
             snake_x_change = -10
@@ -66,6 +65,7 @@ while running:
         elif event.key == pygame.K_ESCAPE:
             running = False
 
+    """Wasted"""
     if ((snake_body_x[0] >= DISPLAY_WIDTH) or (snake_body_x[0] < 0) or
            (snake_body_y[0] >= DISPLAY_HEIGHT) or
            (snake_body_y[0] < 0)):
@@ -77,6 +77,7 @@ while running:
          time.sleep(5)
          running = False
 
+    """The snake is growing."""
     iterator = len(snake_body_x) - 1
     while(iterator > -1):
         if (iterator == 0):
@@ -87,6 +88,7 @@ while running:
         snake_body_y[iterator] = snake_body_y[iterator - 1]
         iterator -= 1
 
+    """The snake eat food."""
     if (snake_body_x[0]==food_x) and (snake_body_y[0]==food_y):
         food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
         food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
@@ -94,6 +96,7 @@ while running:
         snake_body_x.append(snake_body_x[-1] - snake_x_change)
         snake_body_y.append(snake_body_y[-1] - snake_y_change)
 
+    """Frame out to the screen."""
     screen.fill(BLACK)
 
     font = pygame.font.Font(None, 30)

@@ -36,7 +36,7 @@ score = 0
 course = ""
 fps = 5
 
-apple = items.food(SNAKE_WIDTH, DISPLAY_WIDTH, DISPLAY_HEIGHT)
+apple = items.Food(SNAKE_WIDTH, DISPLAY_WIDTH, DISPLAY_HEIGHT)
 
 """ Creating the game cycle."""
 running = True

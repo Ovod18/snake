@@ -35,6 +35,57 @@ score = 0
 course = ""
 fps = 5
 
+
+
+class snake:
+    def __init__(self, snake_width):
+        self.__x_change = 0
+        self.__y_change = 0
+        self.__body_x = []
+        self.__body_y = []
+        self.__width = snake_width
+        self.__course = ""
+
+    def set_course(self):
+        if event.type == pygame.KEYDOWN:
+            if (event.key==pygame.K_LEFT) and (self.__course!="RIGHT"):
+                self.__x_change = -10
+                self.__y_change = 0
+                self.__course = "LEFT"
+            elif (event.key==pygame.K_RIGHT) and (self.__course!="LEFT"):
+                self.__x_change = 10
+                self.__y_change = 0
+                self.__course = "RIGHT"
+            elif (event.key==pygame.K_UP) and (self.__course!="DOWN"):
+                self.__snake_y_change = -10
+                self.__snake_x_change = 0
+                self.__course = "UP"
+            elif (event.key==pygame.K_DOWN) and (self.__course!="UP"):
+                self.__snake_y_change = 10
+                self.__snake_x_change = 0
+                self.__course = "DOWN"
+
+    def moving(self):
+        i = len(self._body_x) - 1
+        while(i > -1):
+            if (i == 0):
+                self._body_x[i] += self._x_change
+                self._body_y[i] += self._y_change
+                break
+            self._body_x[i] = self._body_x[i - 1]
+            self._body_y[i] = self._body_y[i - 1]
+            i -= 1
+
+    def eat(self):
+        self_body_x.append(self_body_x[-1] - self_x_change)
+        self_body_y.append(self_body_y[-1] - self_y_change)
+
+    def get_snake_body_x(self)
+        return self.body_x[]
+    def get_snake_body_y(self)
+        return self.body_y[]
+
+
 """ Creating the game cycle."""
 running = True
 while running:
@@ -74,7 +125,6 @@ while running:
          pygame.display.update()
          time.sleep(5)
          running = False
-
     """Wasted by collision the snakes body."""
     for i in range(len(snake_body_x)):
         if i != 0:

@@ -6,7 +6,6 @@ DISPLAY_WIDTH = 360
 DISPLAY_HEIGHT = 360
 X_CENTRE = DISPLAY_WIDTH / 2
 Y_CENTRE = DISPLAY_HEIGHT / 2
-FPS = 10
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
@@ -34,8 +33,7 @@ food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
 """Setting other values"""
 score = 0
 course = ""
-
-
+fps = 5
 
 """ Creating the game cycle."""
 running = True
@@ -65,7 +63,7 @@ while running:
         elif event.key == pygame.K_ESCAPE:
             running = False
 
-    """Wasted"""
+    """Wasted by collision a border."""
     if ((snake_body_x[0] >= DISPLAY_WIDTH) or (snake_body_x[0] < 0) or
            (snake_body_y[0] >= DISPLAY_HEIGHT) or
            (snake_body_y[0] < 0)):
@@ -76,6 +74,19 @@ while running:
          pygame.display.update()
          time.sleep(5)
          running = False
+
+    """Wasted by collision the snakes body."""
+    for i in range(len(snake_body_x)):
+        if i != 0:
+            if ((snake_body_x[0] == snake_body_x[i]) and
+               (snake_body_y[0] == snake_body_y[i])):
+                 font = pygame.font.Font(None, 65)
+                 text = "WASTED"
+                 message = font.render(text, True, RED)
+                 screen.blit(message, [X_CENTRE, Y_CENTRE])
+                 pygame.display.update()
+                 time.sleep(5)
+                 running = False
 
     """The snake is growing."""
     iterator = len(snake_body_x) - 1
@@ -95,6 +106,7 @@ while running:
         score = score + 1
         snake_body_x.append(snake_body_x[-1] - snake_x_change)
         snake_body_y.append(snake_body_y[-1] - snake_y_change)
+        fps = fps + 1
 
     """Frame out to the screen."""
     screen.fill(BLACK)
@@ -112,7 +124,7 @@ while running:
                      SNAKE_WIDTH, SNAKE_WIDTH])
 
     pygame.display.update()
-    clock.tick(FPS)
+    clock.tick(fps)
 
 pygame.quit()
 quit()

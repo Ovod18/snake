@@ -1,36 +1,40 @@
+import pygame
 import random
-
+pygame.init()
+pygame.mixer.init()
 
 class Snake:
     def __init__(self, snake_width):
         self.__x_change = 0
         self.__y_change = 0
-        self.__body_x = []
-        self.__body_y = []
+        self.__body_x = [50]
+        self.__body_y = [50]
         self.__width = snake_width
-        self.__course = ""
+        self.__course = "empty"
+        self.__length = len(self.__body_x)
 
     def set_course(self):
-        if event.type == pygame.KEYDOWN:
-            if (event.key==pygame.K_LEFT) and (self.__course!="RIGHT"):
-                self.__x_change = -10
-                self.__y_change = 0
-                self.__course = "LEFT"
-            elif (event.key==pygame.K_RIGHT) and (self.__course!="LEFT"):
-                self.__x_change = 10
-                self.__y_change = 0
-                self.__course = "RIGHT"
-            elif (event.key==pygame.K_UP) and (self.__course!="DOWN"):
-                self.__snake_y_change = -10
-                self.__snake_x_change = 0
-                self.__course = "UP"
-            elif (event.key==pygame.K_DOWN) and (self.__course!="UP"):
-                self.__snake_y_change = 10
-                self.__snake_x_change = 0
-                self.__course = "DOWN"
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if (event.key==pygame.K_LEFT) and (self.__course!="RIGHT"):
+                    self.__x_change = -10
+                    self.__y_change = 0
+                    self.__course = "LEFT"
+                elif (event.key==pygame.K_RIGHT) and (self.__course!="LEFT"):
+                    self.__x_change = 10
+                    self.__y_change = 0
+                    self.__course = "RIGHT"
+                elif (event.key==pygame.K_UP) and (self.__course!="DOWN"):
+                    self.__snake_y_change = -10
+                    self.__snake_x_change = 0
+                    self.__course = "UP"
+                elif (event.key==pygame.K_DOWN) and (self.__course!="UP"):
+                    self.__snake_y_change = 10
+                    self.__snake_x_change = 0
+                    self.__course = "DOWN"
 
-    def moving(self):
-        i = len(self._body_x) - 1
+    def move(self):
+        i = len(self.__body_x) - 1
         while(i > -1):
             if (i == 0):
                 self.__body_x[i] += self.__x_change
@@ -44,10 +48,16 @@ class Snake:
         self.__body_x.append(self.__body_x[-1] - self.__x_change)
         self.__body_y.append(self.__body_y[-1] - self.__y_change)
 
-    def get_snake_body_x(self):
+    def get_body_x(self):
         return self.__body_x
-    def get_snake_body_y(self):
+
+    def get_body_y(self):
         return self.__body_y
+
+    def get_course(self):
+        return self.__course
+    def get_length(self):
+        return self.__length
 
 class Food:
 

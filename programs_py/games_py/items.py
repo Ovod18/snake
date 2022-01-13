@@ -13,25 +13,20 @@ class Snake:
         self.__course = "empty"
         self.__length = len(self.__body_x)
 
-    def set_course(self):
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if (event.key==pygame.K_LEFT) and (self.__course!="RIGHT"):
-                    self.__x_change = -10
-                    self.__y_change = 0
-                    self.__course = "LEFT"
-                elif (event.key==pygame.K_RIGHT) and (self.__course!="LEFT"):
-                    self.__x_change = 10
-                    self.__y_change = 0
-                    self.__course = "RIGHT"
-                elif (event.key==pygame.K_UP) and (self.__course!="DOWN"):
-                    self.__snake_y_change = -10
-                    self.__snake_x_change = 0
-                    self.__course = "UP"
-                elif (event.key==pygame.K_DOWN) and (self.__course!="UP"):
-                    self.__snake_y_change = 10
-                    self.__snake_x_change = 0
-                    self.__course = "DOWN"
+    def set_course(self, course):
+        self.__course = course
+        if self.__course == "LEFT":
+            self.__x_change = -10
+            self.__y_change = 0
+        elif self.__course == "RIGHT":
+            self.__x_change = 10
+            self.__y_change = 0
+        elif self.__course == "UP":
+            self.__y_change = -10
+            self.__x_change = 0
+        elif self.__course == "DOWN":
+            self.__y_change = 10
+            self.__x_change = 0
 
     def move(self):
         i = len(self.__body_x) - 1
@@ -56,8 +51,15 @@ class Snake:
 
     def get_course(self):
         return self.__course
+
     def get_length(self):
         return self.__length
+
+    def get_x_change(self):
+        return self.__x_change
+
+    def get_y_change(self):
+        return self.__y_change
 
 class Food:
 

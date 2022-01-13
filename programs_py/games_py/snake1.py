@@ -23,16 +23,7 @@ pygame.display.set_caption("My snake")
 
 clock = pygame.time.Clock()
 
-"""Setting the coordinates of snake."""
-snake_x_change = 0
-snake_y_change = 0
-snake_body_x = [X_CENTRE]
-snake_body_y = [Y_CENTRE]
-food_x = random.randrange(0, DISPLAY_WIDTH, SNAKE_WIDTH)
-food_y = random.randrange(0, DISPLAY_HEIGHT, SNAKE_WIDTH)
-
 my_snake = items.Snake(SNAKE_WIDTH)
-
 
 
 """Setting other values"""
@@ -48,8 +39,18 @@ while running:
     for event in pygame.event.get():
         if (event.type == pygame.QUIT):
             running = False
-
-    my_snake.set_course()
+        if event.type == pygame.KEYDOWN:
+            if (event.key==pygame.K_LEFT) and (course!="RIGHT"):
+                course = "LEFT"
+            elif (event.key==pygame.K_RIGHT) and (course!="LEFT"):
+                course = "RIGHT"
+            elif (event.key==pygame.K_UP) and (course!="DOWN"):
+                course = "UP"
+            elif (event.key==pygame.K_DOWN) and (course!="UP"):
+                course = "DOWN"
+            elif event.key == pygame.K_ESCAPE:
+                running = False
+    my_snake.set_course(course)
     my_snake.move()
    # my_snake.eat()
 
@@ -61,7 +62,6 @@ while running:
     for i in range(len(list_body_x)):
         pygame.draw.rect(screen, GREEN, [list_body_x[i], list_body_y[i],
                          SNAKE_WIDTH, SNAKE_WIDTH])
-        print(my_snake.get_course())
     pygame.draw.rect(screen, RED, [apple.get_x(), apple.get_y(),
                      SNAKE_WIDTH, SNAKE_WIDTH])
 

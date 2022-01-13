@@ -1,6 +1,6 @@
 import random
 
-"""
+
 class Snake:
     def __init__(self, snake_width):
         self.__x_change = 0
@@ -45,10 +45,10 @@ class Snake:
         self.__body_y.append(self.__body_y[-1] - self.__y_change)
 
     def get_snake_body_x(self):
-        return self.__body_x[]
+        return self.__body_x
     def get_snake_body_y(self):
-        return self.__body_y[]
-"""
+        return self.__body_y
+
 class Food:
 
     def __init__(self, food_size, display_width, display_height):

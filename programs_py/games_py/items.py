@@ -1,4 +1,9 @@
 import random
+import math
+
+def dist(a, b):
+    d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)
+    return d
 
 class Snake:
     def __init__(self, snake_width):
@@ -137,10 +142,25 @@ class Food:
     def get_y(self):
         return self.__y
 
-    def set_pos(self):
-        x = random.randrange(self.__size, (self.__d_w-self.__size))
-        y = random.randrange(self.__size, (self.__d_h-self.__size))
-        self.__pos = [x, y]
+    def set_pos(self, excl, snake_width):
+        s_w = snake_width
+        near = s_w / 2 + self.__size
+        pos_valid = False
+        while 1 < 2:
+            count = 0
+            x = random.randrange(self.__size, (self.__d_w-self.__size))
+            y = random.randrange(self.__size, (self.__d_h-self.__size))
+            p = [x, y]
+            for pos in excl:
+                if (dist(p, pos) >= near):
+                    pos_valid = True
+                else:
+                    pos_valid = False
+                    count += 1
+            print("count: ", count)
+            if count == 0:
+                break
+        self.__pos = p
 
     def get_radius(self):
         return self.__radius

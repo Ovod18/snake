@@ -4,8 +4,8 @@ import time
 import math
 import items
 
-DISPLAY_WIDTH = 360
-DISPLAY_HEIGHT = 360
+DISPLAY_WIDTH = 200
+DISPLAY_HEIGHT = 200
 X_CENTRE = DISPLAY_WIDTH / 2
 Y_CENTRE = DISPLAY_HEIGHT / 2
 FPS = 60
@@ -76,11 +76,11 @@ while running:
     d = dist(a_pos, h_pos)
     if d < a_radius:
         my_snake.eat()
-        apple.set_pos()
+        apple.set_pos(body, SNAKE_WIDTH)
         score = score + 1
 
 
-    """Wasted by collision a border."""
+    """Collision a border."""
     if h_pos[0] == 0:
         pos = [DISPLAY_WIDTH, h_pos[1]]
         my_snake.set_pos(pos)

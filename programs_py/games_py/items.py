@@ -1,7 +1,5 @@
 import pygame
 import random
-pygame.init()
-pygame.mixer.init()
 
 class Snake:
     def __init__(self, snake_width):
@@ -16,16 +14,16 @@ class Snake:
     def set_course(self, course):
         self.__course = course
         if self.__course == "LEFT":
-            self.__x_change = -10
+            self.__x_change = -self.__width
             self.__y_change = 0
         elif self.__course == "RIGHT":
-            self.__x_change = 10
+            self.__x_change = self.__width
             self.__y_change = 0
         elif self.__course == "UP":
-            self.__y_change = -10
+            self.__y_change = -self.__width
             self.__x_change = 0
         elif self.__course == "DOWN":
-            self.__y_change = 10
+            self.__y_change = self.__width
             self.__x_change = 0
 
     def move(self):
@@ -79,3 +77,26 @@ class Food:
     def set_pos(self):
         self.__x = random.randrange(0, self.__d_w, self.__size)
         self.__y = random.randrange(0, self.__d_h, self.__size)
+
+class CircleFood:
+    def __init__(self, food_size, display_width, display_height):
+        self.__radius = food_size / 2
+        self.__d_w = display_width
+        self.__d_h = display_height
+        self.__x = random.randrange(0, self.__d_w, food_size)
+        self.__y = random.randrange(0, self.__d_h, food_size)
+
+    def get_x(self):
+        return self.__x
+
+    def get_y(self):
+        return self.__y
+
+    def set_pos(self):
+        self.__x = random.randrange(self.__radius, (self.__d_w-self.__radius),
+                                   (self.__radius*2))
+        self.__y = random.randrange(self.__radius, (self.__d_h-self.__radius),
+                                   (self.__radius*2))
+
+    def get_radius(self):
+        return self.__radius

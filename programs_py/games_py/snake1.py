@@ -31,9 +31,9 @@ body_y = my_snake.get_body_y()
 """Setting other values"""
 score = 0
 course = ""
-fps = 5
+fps = 10
 
-apple = items.Food(SNAKE_WIDTH, DISPLAY_WIDTH, DISPLAY_HEIGHT)
+apple = items.CircleFood(SNAKE_WIDTH, DISPLAY_WIDTH, DISPLAY_HEIGHT)
 
 """ Creating the game cycle."""
 running = True
@@ -54,12 +54,12 @@ while running:
                 running = False
     my_snake.set_course(course)
     my_snake.move()
-    if ((body_x[0]==apple.get_x()) and
-       (body_y[0]==apple.get_y())):
-        my_snake.eat()
-        apple.set_pos()
-        fps = fps + 1
-        score = score +1
+    for i in range(SNAKE_WIDTH):
+        if (((body_x[0]+i)==apple.get_x()) and
+            ((body_y[0]+i)==apple.get_y())):
+            my_snake.eat()
+            apple.set_pos()
+            score = score +1
 
     """Wasted by collision a border."""
     if ((body_x[0] >= DISPLAY_WIDTH) or (body_x[0] < 0) or
@@ -97,8 +97,8 @@ while running:
     for i in range(len(body_x)):
         pygame.draw.rect(screen, GREEN, [body_x[i], body_y[i],
                          SNAKE_WIDTH, SNAKE_WIDTH])
-    pygame.draw.rect(screen, RED, [apple.get_x(), apple.get_y(),
-                     SNAKE_WIDTH, SNAKE_WIDTH])
+    pygame.draw.circle(screen, RED, (apple.get_x(), apple.get_y()),
+                    apple.get_radius() , SNAKE_WIDTH)
 
     pygame.display.update()
     clock.tick(fps)

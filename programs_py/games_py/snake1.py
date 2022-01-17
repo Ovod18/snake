@@ -83,7 +83,7 @@ while running:
             pygame.display.update()
             time.sleep(5)
             running = False
-            pygame.quit()
+            break
 
     """Wasted by collision the snakes body."""
     for i in range(len(body_x)):
@@ -97,7 +97,7 @@ while running:
                 pygame.display.update()
                 time.sleep(5)
                 running = False
-                pygame.quit()
+                break
 
     """Frame out to the screen."""
     screen.fill(BLACK)

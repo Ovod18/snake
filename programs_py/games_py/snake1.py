@@ -7,6 +7,7 @@ DISPLAY_WIDTH = 360
 DISPLAY_HEIGHT = 360
 X_CENTRE = DISPLAY_WIDTH / 2
 Y_CENTRE = DISPLAY_HEIGHT / 2
+FPS = 60
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
@@ -31,13 +32,13 @@ body_y = my_snake.get_body_y()
 """Setting other values"""
 score = 0
 course = ""
-fps = 10
 
 apple = items.CircleFood(SNAKE_WIDTH, DISPLAY_WIDTH, DISPLAY_HEIGHT)
 
 """ Creating the game cycle."""
 running = True
 while running:
+    """Keys binding"""
     for event in pygame.event.get():
         if (event.type == pygame.QUIT):
             running = False
@@ -52,26 +53,37 @@ while running:
                 course = "DOWN"
             elif event.key == pygame.K_ESCAPE:
                 running = False
+
+    """Snake movement"""
     my_snake.set_course(course)
     my_snake.move()
-    for i in range(SNAKE_WIDTH):
-        if (((body_x[0]+i)==apple.get_x()) and
-            ((body_y[0]+i)==apple.get_y())):
-            my_snake.eat()
-            apple.set_pos()
-            score = score +1
+
+    """Snake eats food"""
+    apple_space = apple.get_space()
+    head_space = my_snake.get_head_space()
+    count = 0
+    for i in head_space:
+        for j in apple_space:
+            if i == j:
+                count = count =1
+    if count > 0:
+        my_snake.eat()
+        apple.set_pos()
+        score = score +1
 
     """Wasted by collision a border."""
-    if ((body_x[0] >= DISPLAY_WIDTH) or (body_x[0] < 0) or
-           (body_y[0] >= DISPLAY_HEIGHT) or
+    for i in range(SNAKE_WIDTH):
+        if ((body_x[0] > DISPLAY_WIDTH) or (body_x[0] < 0) or
+           (body_y[0] > DISPLAY_HEIGHT) or
            (body_y[0] < 0)):
-         font = pygame.font.Font(None, 65)
-         text = "WASTED"
-         message = font.render(text, True, RED)
-         screen.blit(message, [X_CENTRE, Y_CENTRE])
-         pygame.display.update()
-         time.sleep(5)
-         running = False
+            font = pygame.font.Font(None, 65)
+            text = "WASTED"
+            message = font.render(text, True, RED)
+            screen.blit(message, [X_CENTRE, Y_CENTRE])
+            pygame.display.update()
+            time.sleep(5)
+            running = False
+            pygame.quit()
 
     """Wasted by collision the snakes body."""
     for i in range(len(body_x)):
@@ -85,12 +97,13 @@ while running:
                 pygame.display.update()
                 time.sleep(5)
                 running = False
+                pygame.quit()
 
     """Frame out to the screen."""
     screen.fill(BLACK)
 
     font = pygame.font.Font(None, 30)
-    text = "Your score: " + str(score)
+    text = "Your score: " + str(score) + "      FPS: " + str(FPS)
     message = font.render(text, True, YELLOW)
     screen.blit(message, [10, 10])
 
@@ -101,7 +114,7 @@ while running:
                     apple.get_radius() , SNAKE_WIDTH)
 
     pygame.display.update()
-    clock.tick(fps)
+    clock.tick(FPS)
 
 pygame.quit()
 quit()

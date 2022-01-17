@@ -14,16 +14,16 @@ class Snake:
     def set_course(self, course):
         self.__course = course
         if self.__course == "LEFT":
-            self.__x_change = -self.__width
+            self.__x_change = -1
             self.__y_change = 0
         elif self.__course == "RIGHT":
-            self.__x_change = self.__width
+            self.__x_change = 1
             self.__y_change = 0
         elif self.__course == "UP":
-            self.__y_change = -self.__width
+            self.__y_change = -1
             self.__x_change = 0
         elif self.__course == "DOWN":
-            self.__y_change = self.__width
+            self.__y_change = 1
             self.__x_change = 0
 
     def move(self):
@@ -38,8 +38,18 @@ class Snake:
             i -= 1
 
     def eat(self):
-        self.__body_x.append(self.__body_x[-1] - self.__x_change)
-        self.__body_y.append(self.__body_y[-1] - self.__y_change)
+        for i in range(self.__width):
+            self.__body_x.append(self.__body_x[-1] - self.__x_change)
+            self.__body_y.append(self.__body_y[-1] - self.__y_change)
+
+    def get_head_space(self):
+        x0 = self.__body_x[0]
+        y0 = self.__body_y[0]
+        self.__space = [[x0, y0]]
+        for i in range(self.__width):
+            for j in range(self.__width):
+                self.__space.append([x0+i, y0+j])
+        return self.__space
 
     def get_body_x(self):
         return self.__body_x
@@ -81,6 +91,7 @@ class Food:
 class CircleFood:
     def __init__(self, food_size, display_width, display_height):
         self.__radius = food_size / 2
+        self.__size = food_size
         self.__d_w = display_width
         self.__d_h = display_height
         self.__x = random.randrange(0, self.__d_w, food_size)
@@ -100,3 +111,15 @@ class CircleFood:
 
     def get_radius(self):
         return self.__radius
+
+    def get_size(self):
+        return self.__radius * 2
+
+    def get_space(self):
+        x0 = self.__x - self.__radius
+        y0 = self.__y - self.__radius
+        self.__space = [[x0, y0]]
+        for i in range(self.__size):
+            for j in range(self.__size):
+                self.__space.append([x0+i, y0+j])
+        return self.__space

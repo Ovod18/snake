@@ -12,18 +12,19 @@ class Snake:
         self.__length = len(self.__body_x)
 
     def set_course(self, course):
+        step = 1
         self.__course = course
         if self.__course == "LEFT":
-            self.__x_change = -1
+            self.__x_change = -step
             self.__y_change = 0
         elif self.__course == "RIGHT":
-            self.__x_change = 1
+            self.__x_change = step
             self.__y_change = 0
         elif self.__course == "UP":
-            self.__y_change = -1
+            self.__y_change = -step
             self.__x_change = 0
         elif self.__course == "DOWN":
-            self.__y_change = 1
+            self.__y_change = step
             self.__x_change = 0
 
     def move(self):
@@ -70,25 +71,6 @@ class Snake:
         return self.__y_change
 
 class Food:
-
-    def __init__(self, food_size, display_width, display_height):
-        self.__size = food_size
-        self.__d_w = display_width
-        self.__d_h = display_height
-        self.__x = random.randrange(0, self.__d_w, self.__size)
-        self.__y = random.randrange(0, self.__d_h, self.__size)
-
-    def get_x(self):
-        return self.__x
-
-    def get_y(self):
-        return self.__y
-
-    def set_pos(self):
-        self.__x = random.randrange(0, self.__d_w, self.__size)
-        self.__y = random.randrange(0, self.__d_h, self.__size)
-
-class CircleFood:
     def __init__(self, food_size, display_width, display_height):
         self.__radius = food_size / 2
         self.__size = food_size

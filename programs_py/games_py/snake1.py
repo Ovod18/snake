@@ -32,8 +32,14 @@ body_y = my_snake.get_body_y()
 """Setting other values"""
 score = 0
 course = ""
-
-apple = items.CircleFood(SNAKE_WIDTH, DISPLAY_WIDTH, DISPLAY_HEIGHT)
+apple = items.Food(SNAKE_WIDTH, DISPLAY_WIDTH, DISPLAY_HEIGHT)
+scr_border = [[]]
+for i in range(DISPLAY_WIDTH):
+    scr_border.append([i, 0])
+    scr_border.append([i, DISPLAY_WIDTH])
+for i in range(DISPLAY_HEIGHT):
+    scr_border.append([0, i])
+    scr_border.append([0, DISPLAY_HEIGHT])
 
 """ Creating the game cycle."""
 running = True
@@ -72,18 +78,19 @@ while running:
         score = score +1
 
     """Wasted by collision a border."""
-    for i in range(SNAKE_WIDTH):
-        if ((body_x[0] > DISPLAY_WIDTH) or (body_x[0] < 0) or
-           (body_y[0] > DISPLAY_HEIGHT) or
-           (body_y[0] < 0)):
-            font = pygame.font.Font(None, 65)
-            text = "WASTED"
-            message = font.render(text, True, RED)
-            screen.blit(message, [X_CENTRE, Y_CENTRE])
-            pygame.display.update()
-            time.sleep(5)
-            running = False
-            break
+    count = 0
+    for i in head_space:
+        for j in scr_border:
+            if j == i:
+                count = count +1
+    if count > 0:
+        font = pygame.font.Font(None, 65)
+        text = "WASTED"
+        message = font.render(text, True, RED)
+        screen.blit(message, [X_CENTRE, Y_CENTRE])
+        pygame.display.update()
+        time.sleep(5)
+        running = False
 
     """Wasted by collision the snakes body."""
     for i in range(len(body_x)):

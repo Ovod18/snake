@@ -14,7 +14,7 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
-SNAKE_WIDTH = 10
+SNAKE_WIDTH = 20
 
 """Creating the main window."""
 pygame.init()
@@ -25,9 +25,9 @@ pygame.display.set_caption("My snake")
 clock = pygame.time.Clock()
 
 """Setting snakes properties"""
-my_snake = items.Snake(SNAKE_WIDTH)
-body_x = my_snake.get_body_x()
-body_y = my_snake.get_body_y()
+my_snake = items.CircularSnake(SNAKE_WIDTH)
+body = my_snake.get_body()
+head_pos = my_snake.get_head_pos()
 
 """Setting other values"""
 score = 0
@@ -65,46 +65,19 @@ while running:
     my_snake.move()
 
     """Snake eats food"""
-    apple_space = apple.get_space()
-    head_space = my_snake.get_head_space()
-    count = 0
-    for i in head_space:
-        for j in apple_space:
-            if i == j:
-                count = count =1
-    if count > 0:
+    head_pos = my_snake.get_head_pos()
+    apple_x = apple.get_x()
+    apple_y = apple.get_y()
+    apple_pos = [apple_x, apple_y]
+    if head_pos == apple_pos:
         my_snake.eat()
         apple.set_pos()
-        score = score +1
+        score = score + 1
+
 
     """Wasted by collision a border."""
-    count = 0
-    for i in head_space:
-        for j in scr_border:
-            if j == i:
-                count = count +1
-    if count > 0:
-        font = pygame.font.Font(None, 65)
-        text = "WASTED"
-        message = font.render(text, True, RED)
-        screen.blit(message, [X_CENTRE, Y_CENTRE])
-        pygame.display.update()
-        time.sleep(5)
-        running = False
 
     """Wasted by collision the snakes body."""
-    for i in range(len(body_x)):
-        if i != 0:
-            if ((body_x[0] == body_x[i]) and
-               (body_y[0] == body_y[i])):
-                font = pygame.font.Font(None, 65)
-                text = "WASTED"
-                message = font.render(text, True, RED)
-                screen.blit(message, [X_CENTRE, Y_CENTRE])
-                pygame.display.update()
-                time.sleep(5)
-                running = False
-                break
 
     """Frame out to the screen."""
     screen.fill(BLACK)
@@ -114,9 +87,9 @@ while running:
     message = font.render(text, True, YELLOW)
     screen.blit(message, [10, 10])
 
-    for i in range(len(body_x)):
-        pygame.draw.rect(screen, GREEN, [body_x[i], body_y[i],
-                         SNAKE_WIDTH, SNAKE_WIDTH])
+    for segment in body:
+        pygame.draw.circle(screen, YELLOW, (segment[0], segment[1]),
+                           (SNAKE_WIDTH/2), SNAKE_WIDTH)
 
     pygame.draw.circle(screen, RED, (apple.get_x(), apple.get_y()),
                     apple.get_radius() , SNAKE_WIDTH)

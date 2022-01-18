@@ -1,4 +1,3 @@
-import pygame
 import random
 
 class Snake:
@@ -69,6 +68,54 @@ class Snake:
 
     def get_y_change(self):
         return self.__y_change
+
+class CircularSnake:
+    def __init__(self, snake_width):
+        self.__pos_change = [0, 0]
+        self.__segment_pos = [[100, 100]]
+        self.__width = snake_width
+        self.__course = "empty"
+
+    def set_course(self, course):
+        step = 1
+        self.__course = course
+        if self.__course == "LEFT":
+            self.__pos_change = [-step, 0]
+        elif self.__course == "RIGHT":
+            self.__pos_change = [step, 0]
+        elif self.__course == "UP":
+            self.__pos_change = [0, -step]
+        elif self.__course == "DOWN":
+            self.__pos_change =[0, step]
+
+    def move(self):
+        i = len(self.__segment_pos) - 1
+        while(i > -1):
+            pos = self.__segment_pos[i]
+            if (i == 0):
+                x = pos[0] + self.__pos_change[0]
+                y = pos[1] + self.__pos_change[1]
+                self.__segment_pos[i] = [x, y]
+                break
+            self.__segment_pos[i] = self.__segment_pos[i - 1]
+            i -= 1
+
+    def eat(self):
+        for i in range(self.__width):
+            pos = self.__segment_pos[-1]
+            x = pos[0] - self.__pos_change[0]
+            y = pos[1] - self.__pos_change[1]
+            buff = [x, y]
+            self.__segment_pos.append(buff)
+
+    def get_course(self):
+        return self.__course
+
+    def get_head_pos(self):
+        return self.__segment_pos[0]
+
+    def get_body(self):
+        return self.__segment_pos
 
 class Food:
     def __init__(self, food_size, display_width, display_height):

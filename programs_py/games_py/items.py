@@ -125,6 +125,7 @@ class Food:
         self.__d_h = display_height
         self.__x = random.randrange(0, self.__d_w, food_size)
         self.__y = random.randrange(0, self.__d_h, food_size)
+        self.__pos = [self.__x, self.__y]
 
     def get_x(self):
         return self.__x
@@ -133,16 +134,20 @@ class Food:
         return self.__y
 
     def set_pos(self):
-        self.__x = random.randrange(self.__radius, (self.__d_w-self.__radius),
-                                   (self.__radius*2))
-        self.__y = random.randrange(self.__radius, (self.__d_h-self.__radius),
-                                   (self.__radius*2))
+        x = random.randrange(self.__radius, (self.__d_w-self.__radius),
+                                            (self.__radius*2))
+        y = random.randrange(self.__radius, (self.__d_h-self.__radius),
+                                            (self.__radius*2))
+        self.__pos = [x, y]
 
     def get_radius(self):
         return self.__radius
 
     def get_size(self):
         return self.__radius * 2
+
+    def get_pos(self):
+        return self.__pos
 
     def get_space(self):
         x0 = self.__x - self.__radius

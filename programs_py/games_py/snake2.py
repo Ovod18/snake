@@ -1,6 +1,7 @@
 import pygame
 import random
 import time
+import math
 import items
 
 DISPLAY_WIDTH = 360
@@ -65,11 +66,11 @@ while running:
     my_snake.move()
 
     """Snake eats food"""
-    head_pos = my_snake.get_head_pos()
-    apple_x = apple.get_x()
-    apple_y = apple.get_y()
-    apple_pos = [apple_x, apple_y]
-    if head_pos == apple_pos:
+    h_pos = my_snake.get_head_pos()
+    a_pos = apple.get_pos()
+    a_radius = apple.get_radius()
+    dist = math.sqrt((h_pos[0] - a_pos[0])**2 + (h_pos[1] - a_pos[1])**2)
+    if dist < a_radius:
         my_snake.eat()
         apple.set_pos()
         score = score + 1
@@ -91,7 +92,8 @@ while running:
         pygame.draw.circle(screen, YELLOW, (segment[0], segment[1]),
                            (SNAKE_WIDTH/2), SNAKE_WIDTH)
 
-    pygame.draw.circle(screen, RED, (apple.get_x(), apple.get_y()),
+    apple_pos = apple.get_pos()
+    pygame.draw.circle(screen, RED, (apple_pos[0], apple_pos[1]),
                     apple.get_radius() , SNAKE_WIDTH)
 
     pygame.display.update()

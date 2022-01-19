@@ -89,7 +89,7 @@ while running:
     screen.blit(message, [10, 10])
 
     for segment in body:
-        pygame.draw.circle(screen, YELLOW, (segment[0], segment[1]),
+        pygame.draw.circle(screen, GREEN, (segment[0], segment[1]),
                            (SNAKE_WIDTH/2), SNAKE_WIDTH)
 
     apple_pos = apple.get_pos()

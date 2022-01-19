@@ -42,6 +42,10 @@ for i in range(DISPLAY_HEIGHT):
     scr_border.append([0, i])
     scr_border.append([0, DISPLAY_HEIGHT])
 
+def dist(a, b):
+    d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)
+    return d
+
 """ Creating the game cycle."""
 running = True
 while running:
@@ -69,16 +73,39 @@ while running:
     h_pos = my_snake.get_head_pos()
     a_pos = apple.get_pos()
     a_radius = apple.get_radius()
-    dist = math.sqrt((h_pos[0] - a_pos[0])**2 + (h_pos[1] - a_pos[1])**2)
-    if dist < a_radius:
+    d = dist(a_pos, h_pos)
+    if d < a_radius:
         my_snake.eat()
         apple.set_pos()
         score = score + 1
 
 
     """Wasted by collision a border."""
+    if h_pos[0] == 0:
+        pos = [DISPLAY_WIDTH, h_pos[1]]
+        my_snake.set_pos(pos)
+    elif h_pos[0] == DISPLAY_WIDTH:
+        pos = [0, h_pos[1]]
+        my_snake.set_pos(pos)
+    if h_pos[1] == 0:
+        pos = [h_pos[0], DISPLAY_HEIGHT]
+        my_snake.set_pos(pos)
+    elif h_pos[1] == DISPLAY_HEIGHT:
+        pos = [h_pos[0], 0]
+        my_snake.set_pos(pos)
 
     """Wasted by collision the snakes body."""
+    for i in range(SNAKE_WIDTH * 2, len(body)):
+        d = dist(body[i], h_pos)
+        if d < SNAKE_WIDTH:
+            font = pygame.font.Font(None, 65)
+            text = "WASTED"
+            message = font.render(text, True, RED)
+            screen.blit(message, [X_CENTRE, Y_CENTRE])
+            pygame.display.update()
+            time.sleep(3)
+            running = False
+            break
 
     """Frame out to the screen."""
     screen.fill(BLACK)

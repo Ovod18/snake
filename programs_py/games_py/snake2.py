@@ -4,8 +4,8 @@ import time
 import math
 import items
 
-DISPLAY_WIDTH = 200
-DISPLAY_HEIGHT = 200
+DISPLAY_WIDTH = 360
+DISPLAY_HEIGHT = 360
 X_CENTRE = DISPLAY_WIDTH / 2
 Y_CENTRE = DISPLAY_HEIGHT / 2
 FPS = 60
@@ -98,12 +98,12 @@ while running:
     for i in range(SNAKE_WIDTH * 2, len(body)):
         d = dist(body[i], h_pos)
         if d < SNAKE_WIDTH:
-            font = pygame.font.Font(None, 65)
-            text = "WASTED"
+            font = pygame.font.Font(None, 20)
+            text = "Your score: " + str(score)
             message = font.render(text, True, RED)
             screen.blit(message, [X_CENTRE, Y_CENTRE])
             pygame.display.update()
-            time.sleep(3)
+            time.sleep(5)
             running = False
             break
 

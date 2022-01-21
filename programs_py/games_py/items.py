@@ -109,8 +109,8 @@ class CircularSnake:
         self.__segment_pos[0] = pos
 
 
-    def eat(self):
-        for i in range(self.__width):
+    def eat(self, food_size):
+        for i in range(food_size):
             pos = self.__segment_pos[-1]
             x = pos[0] - self.__pos_change[0]
             y = pos[1] - self.__pos_change[1]
@@ -127,20 +127,25 @@ class CircularSnake:
         return self.__segment_pos
 
 class Food:
-    def __init__(self, food_size, display_width, display_height):
-        self.__radius = food_size / 2
-        self.__size = food_size
+    def __init__(self, snake_width, display_width, display_height):
+        self.__size = snake_width
+        self.__radius = self.__size / 2
         self.__d_w = display_width
         self.__d_h = display_height
         self.__x = random.randrange(self.__size, self.__d_w)
         self.__y = random.randrange(self.__size, self.__d_h)
         self.__pos = [self.__x, self.__y]
+        self.size_factor = 3
 
     def get_x(self):
         return self.__x
 
     def get_y(self):
         return self.__y
+
+    def set_size(self, snake_width):
+        self.__size = random.randrange(snake_width, snake_width*
+                                       (self.size_factor + 1), snake_width)
 
     def set_pos(self, excl, snake_width):
         s_w = snake_width
@@ -157,7 +162,6 @@ class Food:
                 else:
                     pos_valid = False
                     count += 1
-            print("count: ", count)
             if count == 0:
                 break
         self.__pos = p
@@ -166,7 +170,7 @@ class Food:
         return self.__radius
 
     def get_size(self):
-        return self.__radius * 2
+        return self.__size
 
     def get_pos(self):
         return self.__pos

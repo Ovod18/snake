@@ -75,9 +75,11 @@ while running:
     a_radius = apple.get_radius()
     d = dist(a_pos, h_pos)
     if d < a_radius:
-        my_snake.eat()
+        my_snake.eat(apple.get_size())
+        score += apple.get_size() / SNAKE_WIDTH
+        apple.set_size(SNAKE_WIDTH)
         apple.set_pos(body, SNAKE_WIDTH)
-        score = score + 1
+
 
 
     """Collision a border."""
@@ -117,11 +119,11 @@ while running:
 
     for segment in body:
         pygame.draw.circle(screen, GREEN, (segment[0], segment[1]),
-                           (SNAKE_WIDTH/2), SNAKE_WIDTH)
+                           (SNAKE_WIDTH/2), 0)
 
     apple_pos = apple.get_pos()
     pygame.draw.circle(screen, RED, (apple_pos[0], apple_pos[1]),
-                    apple.get_radius() , SNAKE_WIDTH)
+                    apple.get_size()/2 , 0)
 
     pygame.display.update()
     clock.tick(FPS)

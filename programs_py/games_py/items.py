@@ -59,14 +59,14 @@ class Snake:
 
 class Food:
     def __init__(self, snake_width, display_width, display_height, inf_height):
-        self.__size = snake_width
+        self.size_factor = 4
+        self.__size = snake_width // self.size_factor
         self.d_w = display_width
         self.d_h = display_height
         self.inf_height = inf_height
         self.__x = random.randrange(self.__size, self.d_w)
         self.__y = random.randrange(self.__size + inf_height, self.d_h)
         self.__pos = [self.__x, self.__y]
-        self.size_factor = 3
 
     def get_x(self):
         return self.__x
@@ -75,8 +75,9 @@ class Food:
         return self.__y
 
     def set_size(self, snake_width):
-        self.__size = random.randrange(snake_width, snake_width*
-                                       (self.size_factor + 1), snake_width)
+        min_size = snake_width // self.size_factor
+        max_size = snake_width
+        self.__size = random.randrange(min_size, max_size + 1, 1)
 
     def set_pos(self, excl, snake_width):
         s_w = snake_width

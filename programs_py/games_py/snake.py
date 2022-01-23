@@ -67,7 +67,7 @@ while running:
     a_pos = apple.get_pos()
     a_radius = apple.get_size() / 2
     d = dist(a_pos, h_pos)
-    if d < a_radius:
+    if d < (SNAKE_WIDTH / 2):
         my_snake.eat(apple.get_size())
         score += int(apple.get_size() / SNAKE_WIDTH)
         apple.set_size(SNAKE_WIDTH)

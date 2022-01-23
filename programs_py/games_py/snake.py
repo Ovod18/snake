@@ -4,8 +4,8 @@ import time
 import math
 import items
 
-DISPLAY_WIDTH = 360
-DISPLAY_HEIGHT = 360
+DISPLAY_WIDTH = 200
+DISPLAY_HEIGHT = 200
 INF_HEIGHT = 40
 X_CENTRE = DISPLAY_WIDTH / 2
 Y_CENTRE = DISPLAY_HEIGHT / 2
@@ -69,8 +69,8 @@ while running:
     d = dist(a_pos, h_pos)
     if d < (SNAKE_WIDTH / 2):
         my_snake.eat(apple.get_size())
-        score += int(apple.get_size() / SNAKE_WIDTH)
-        apple.set_size(SNAKE_WIDTH)
+        score += int(apple.get_size())
+        apple.set_size(SNAKE_WIDTH / 2)
         apple.set_pos(body, SNAKE_WIDTH)
 
 

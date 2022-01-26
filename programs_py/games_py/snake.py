@@ -78,7 +78,7 @@ def main():
             if d < (SNAKE_WIDTH / 2):
                 my_snake.eat(apple.get_size())
                 score += int(apple.get_size())
-                apple.set_size(SNAKE_WIDTH / 2)
+                apple.set_size(SNAKE_WIDTH)
                 apple.set_pos(body, SNAKE_WIDTH)
 
 

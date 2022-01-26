@@ -77,7 +77,8 @@ class Food:
     def set_size(self, snake_width):
         min_size = snake_width // self.size_factor
         max_size = snake_width
-        self.__size = random.randrange(min_size, max_size + 1, 1)
+        self.__size = random.randrange(min_size, max_size + 1,
+                                             self.size_factor)
 
     def set_pos(self, excl, snake_width):
         s_w = snake_width

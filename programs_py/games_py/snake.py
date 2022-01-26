@@ -7,8 +7,8 @@ import items
 
 def main():
 
-    DISPLAY_WIDTH = 200
-    DISPLAY_HEIGHT = 200
+    DISPLAY_WIDTH = 400
+    DISPLAY_HEIGHT = 400
     INF_HEIGHT = 40
     X_CENTRE = DISPLAY_WIDTH / 2
     Y_CENTRE = DISPLAY_HEIGHT / 2
@@ -19,7 +19,7 @@ def main():
     GREEN = (0, 255, 0)
     BLUE = (0, 0, 255)
     YELLOW = (255, 255, 0)
-    SNAKE_WIDTH = 20
+    SNAKE_WIDTH = 30
 
     """Creating the main window."""
     pygame.init()
@@ -115,13 +115,13 @@ def main():
             screen.fill(BLACK)
             """Showing current informatoin"""
             font = pygame.font.Font(None, 30)
-            text = "Your score: " + str(score) + "      FPS: " + str(FPS)
+            text = "Your score: " + str(score)
             message = font.render(text, True, YELLOW)
             screen.blit(message, [6, 6])
 
             s_rad = SNAKE_WIDTH / 2
             pygame.draw.line(screen, YELLOW, (0, INF_HEIGHT - s_rad),
-                                              (DISPLAY_WIDTH, INF_HEIGHT - s_rad))
+                             (DISPLAY_WIDTH, INF_HEIGHT - s_rad))
 
             for segment in body:
                 pygame.draw.circle(screen, GREEN, (segment[0], segment[1]),

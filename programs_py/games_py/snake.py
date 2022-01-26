@@ -104,7 +104,7 @@ while state != "quit":
                 screen.blit(message, [X_CENTRE, Y_CENTRE])
                 pygame.display.update()
                 time.sleep(5)
-                running = False
+                state = "quit"
                 break
 
         """Frame out to the screen."""

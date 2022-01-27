@@ -2,6 +2,7 @@ import random
 import math
 
 def dist(a, b):
+    """Calculation the distance"""
     d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)
     return d
 

@@ -1,44 +1,45 @@
-import os
 import pygame
 import random
 import time
 import math
 import items
 
-def main():
+FPS = 60
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+YELLOW = (255, 255, 0)
 
-    DISPLAY_WIDTH = 400
-    DISPLAY_HEIGHT = 400
+def main(display_width, display_height, snake_width):
+
+    d_w = display_width
+    d_h = display_height
+    s_w = snake_width
     INF_HEIGHT = 40
-    X_CENTRE = DISPLAY_WIDTH / 2
-    Y_CENTRE = DISPLAY_HEIGHT / 2
-    FPS = 60
-    WHITE = (255, 255, 255)
-    BLACK = (0, 0, 0)
-    RED = (255, 0, 0)
-    GREEN = (0, 255, 0)
-    BLUE = (0, 0, 255)
-    YELLOW = (255, 255, 0)
-    SNAKE_WIDTH = 30
+    X_CENTRE = d_w / 2
+    Y_CENTRE = d_h / 2
 
     """Creating the main window."""
     pygame.init()
-    screen = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
+    screen = pygame.display.set_mode((d_w, d_h))
     pygame.display.set_caption("My snake")
 
     clock = pygame.time.Clock()
 
     """Setting snakes properties"""
-    my_snake = items.Snake(SNAKE_WIDTH)
+    my_snake = items.Snake(s_w)
     body = my_snake.get_body()
     head_pos = my_snake.get_head_pos()
 
     """Setting other values"""
     score = 0
     course = ""
-    apple = items.Food(SNAKE_WIDTH, DISPLAY_WIDTH, DISPLAY_HEIGHT, INF_HEIGHT)
+    apple = items.Food(s_w, d_w, d_h, INF_HEIGHT)
 
     def dist(a, b):
+        """Calculation the distance"""
         d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)
         return d
 
@@ -75,32 +76,32 @@ def main():
             a_pos = apple.get_pos()
             a_radius = apple.get_size() / 2
             d = dist(a_pos, h_pos)
-            if d < (SNAKE_WIDTH / 2):
+            if d < (s_w / 2):
                 my_snake.eat(apple.get_size())
                 score += int(apple.get_size())
-                apple.set_size(SNAKE_WIDTH)
-                apple.set_pos(body, SNAKE_WIDTH)
+                apple.set_size(s_w)
+                apple.set_pos(body, s_w)
 
 
 
             """Collision a border."""
             if h_pos[0] == 0:
-                pos = [DISPLAY_WIDTH, h_pos[1]]
+                pos = [d_w, h_pos[1]]
                 my_snake.set_pos(pos)
-            elif h_pos[0] == DISPLAY_WIDTH:
+            elif h_pos[0] == d_w:
                 pos = [0, h_pos[1]]
                 my_snake.set_pos(pos)
             if h_pos[1] == INF_HEIGHT:
-                pos = [h_pos[0], DISPLAY_HEIGHT]
+                pos = [h_pos[0], d_h]
                 my_snake.set_pos(pos)
-            elif h_pos[1] == DISPLAY_HEIGHT:
+            elif h_pos[1] == d_h:
                 pos = [h_pos[0], INF_HEIGHT]
                 my_snake.set_pos(pos)
 
             """Wasted by collision the snakes body."""
-            for i in range(SNAKE_WIDTH * 2, len(body)):
+            for i in range(s_w * 2, len(body)):
                 d = dist(body[i], h_pos)
-                if d < SNAKE_WIDTH:
+                if d < s_w:
                     font = pygame.font.Font(None, 20)
                     text = "Your score: " + str(score)
                     message = font.render(text, True, RED)
@@ -119,13 +120,13 @@ def main():
             message = font.render(text, True, YELLOW)
             screen.blit(message, [6, 6])
 
-            s_rad = SNAKE_WIDTH / 2
+            s_rad = s_w / 2
             pygame.draw.line(screen, YELLOW, (0, INF_HEIGHT - s_rad),
-                             (DISPLAY_WIDTH, INF_HEIGHT - s_rad))
+                             (d_w, INF_HEIGHT - s_rad))
 
             for segment in body:
                 pygame.draw.circle(screen, GREEN, (segment[0], segment[1]),
-                                   (SNAKE_WIDTH/2), 0)
+                                   (s_w/2), 0)
 
             apple_pos = apple.get_pos()
             pygame.draw.circle(screen, RED, (apple_pos[0], apple_pos[1]),

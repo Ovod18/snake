@@ -1,8 +1,22 @@
 import tkinter as tk
 import snake
 
-def start_game():
-    snake.main()
+d_w = 100
+d_h = 100
+s_w = 10
+def btn_play_click():
+    """The handler of btn_play click """
+    d_w = int(display_width_entry.get())
+    d_h = int(display_height_entry.get())
+    s_w = int(snake_width_entry.get())
+    start_game(d_w, d_h, s_w)
+
+def start_game(d_w, d_h, s_w):
+    """
+    Start game with following parameters:
+    d_w = display width, d_h = display weight, s_w = snake width
+    """
+    snake.main(d_w, d_h, s_w)
 
 """Seting start window"""
 start_window = tk.Tk()
@@ -57,7 +71,7 @@ snake_width_entry.pack()
 """Start the game"""
 play_btn = tk.Button(master = setting_frame,
                      text = "Play",
-                     command = start_game,
+                     command = btn_play_click,
                      width = 24,
                      height = 3,
                      bg = "blue",

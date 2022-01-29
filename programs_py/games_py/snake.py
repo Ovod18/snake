@@ -38,11 +38,6 @@ def main(display_width, display_height, snake_width):
     course = ""
     apple = items.Food(s_w, d_w, d_h, INF_HEIGHT)
 
-    def dist(a, b):
-        """Calculation the distance"""
-        d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)
-        return d
-
 
     """ Creating the game cycle."""
     state = "running"
@@ -75,7 +70,7 @@ def main(display_width, display_height, snake_width):
             h_pos = my_snake.get_head_pos()
             a_pos = apple.get_pos()
             a_radius = apple.get_size() / 2
-            d = dist(a_pos, h_pos)
+            d = items.dist(a_pos, h_pos)
             if d < (s_w / 2):
                 my_snake.eat(apple.get_size())
                 score += int(apple.get_size())
@@ -100,7 +95,7 @@ def main(display_width, display_height, snake_width):
 
             """Wasted by collision the snakes body."""
             for i in range(s_w * 2, len(body)):
-                d = dist(body[i], h_pos)
+                d = items.dist(body[i], h_pos)
                 if d < s_w:
                     font = pygame.font.Font(None, 20)
                     text = "Your score: " + str(score)

@@ -1,10 +1,4 @@
 """This module contains the describe of items."""
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
-YELLOW = (255, 255, 0)
 import random
 import math
 
@@ -30,31 +24,36 @@ def dist(a, b):
     d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)
     return d
 
-class Snake:
-    """
-    This class describes a snake.
-
-    ATTRIBUTES:
-        self.__pos_change[x, y]: motion change module.
-        self.__segment_pos[[x, y], ... , [n, m]]: list of snake segment
-                                                            coordinates.
-        self.__width (int): snake width.
-        self.__course (str): course of snake movement,  maybe "LEFT", "RIGHT",
-                                                            "UP", "DOWN".
-
-    METHODS:
-        set_course(course): sets self.__course = course
-        move(): describes snake movement.
-        set_pos(pos): sets the position of snake's head in pos[x, y].
-        eat(food_size): increase the length of the snake by food_size.
-        get_course(): return self.__course.
-        get_head_pos(): return the list coordinates [x, y] of snake's head.
-        get_body(): return the list of coordinates [x, y] of snake's segments.
-    """
+class Segment:
     def __init__(self, snake_width):
-        self.__pos_change = [0, 0]
-        self.__segment_pos = [[100, 100]]
+        self.__pos = [100, 100]
         self.__width = snake_width
+        self.__color = (0, 255, 0)
+
+    def get_pos(self):
+        return self.__pos
+
+    def get_width(self):
+        return self.__width
+
+    def get_color(self):
+        return self.__color
+
+    def set_pos(self, pos):
+        self.__pos = pos
+
+    def set_width(self, width):
+        self.__width = width
+
+    def set_color(self, color):
+        self.__color = color
+
+class Snake:
+
+    def __init__(self, snake_width):
+        self.__width = snake_width
+        self.__segment = [Segment(snake_width)]
+        self.__pos_change = [0, 0]
         self.__course = "empty"
 
     def set_course(self, course):
@@ -76,23 +75,27 @@ class Snake:
 
     def move(self):
         """This method defines snake movement"""
-        i = len(self.__segment_pos) - 1
+        i = len(self.__segment) - 1
         while(i > -1):
-            pos = self.__segment_pos[i]
+            segment = self.__segment[i]
+            pos = segment.get_pos()
             if (i == 0):
                 x = pos[0] + self.__pos_change[0]
                 y = pos[1] + self.__pos_change[1]
-                self.__segment_pos[i] = [x, y]
+                pos = [x, y]
+                segment.set_pos(pos)
                 break
-            self.__segment_pos[i] = self.__segment_pos[i - 1]
+            p_segment = self.__segment[i - 1]
+            pos = p_segment.get_pos()
+            segment.set_pos(pos)
             i -= 1
 
     def set_pos(self, pos):
         """This method sets position of snake head"""
-        self.__segment_pos[0] = pos
+        head = self.__segment[0]
+        head.set_pos(pos)
 
-
-    def eat(self, food_size):
+    def eat(self, food_size, food_color):
         """
         This method defines eating snake food
 
@@ -100,11 +103,15 @@ class Snake:
             food_size (int): size of food
         """
         for i in range(food_size):
-            pos = self.__segment_pos[-1]
+            segment = self.__segment[-1]
+            pos = segment.get_pos()
             x = pos[0] - self.__pos_change[0]
             y = pos[1] - self.__pos_change[1]
-            buff = [x, y]
-            self.__segment_pos.append(buff)
+            new_pos = [x, y]
+            new_segment = Segment(self.__width)
+            new_segment.set_pos(new_pos)
+            new_segment.set_color(food_color)
+            self.__segment.append(new_segment)
 
     def get_course(self):
         """This method return current course of snake movement"""
@@ -112,11 +119,13 @@ class Snake:
 
     def get_head_pos(self):
         """This method return current position of snake head"""
-        return self.__segment_pos[0]
+        head = self.__segment[0]
+        pos = head.get_pos()
+        return pos
 
     def get_body(self):
-        """This method return the list of coordinates segments of snake"""
-        return self.__segment_pos
+        """This method return the list of segments of snake"""
+        return self.__segment
 
 class Food:
     """

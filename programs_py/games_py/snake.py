@@ -121,6 +121,7 @@ def main(display_width, display_height, snake_width):
                              (d_w, INF_HEIGHT - s_rad))
 
             for segment in body:
+            pos = se
                 pygame.draw.circle(screen, GREEN, (segment[0], segment[1]),
                                    (s_w/2), 0)
 

@@ -19,6 +19,9 @@ def btn_play_click():
             dw (int): display width.
             dh (int): display height.
             sw (int): snake width
+        NOTE:
+            The entered data (dw, dh, sw) must be digits. If data not digits,
+            this will couse an error.
 
     """
     try:

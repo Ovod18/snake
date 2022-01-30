@@ -7,6 +7,7 @@ VARIABLES:
 """
 
 import tkinter as tk
+import tkinter.messagebox as mb
 import snake
 
 dw = 100
@@ -20,10 +21,14 @@ def btn_play_click():
             sw (int): snake width
 
     """
-    dw = int(display_width_entry.get())
-    dh = int(display_height_entry.get())
-    sw = int(snake_width_entry.get())
-    start_game(dw, dh, sw)
+    try:
+        dw = int(display_width_entry.get())
+        dh = int(display_height_entry.get())
+        sw = int(snake_width_entry.get())
+        start_game(dw, dh, sw)
+    except ValueError:
+        msg = "Check the entered data. It must be digits."
+        mb.showerror("Error", msg)
 
 def start_game(dw, dh, sw):
     """

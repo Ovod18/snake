@@ -14,7 +14,9 @@ dw = 100
 dh = 100
 sw = 10
 def btn_play_click():
-    """The handler of btn_play click.
+    """
+        The handler of btn_play click.
+
         VARIABLES:
             dw (int): display width.
             dh (int): display height.

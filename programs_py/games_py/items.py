@@ -8,12 +8,12 @@ YELLOW = (255, 255, 0)
 import random
 import math
 
-colors = {WHITE: (255, 255, 255),
-          BLACK: (0, 0, 0),
-          RED: (255, 0, 0),
-          GREEN: (0, 255, 0),
-          BLUE: (0, 0, 255),
-          YELLOW: (255, 255, 0)}
+colors = ((255, 255, 255),
+         (0, 0, 0),
+         (255, 0, 0),
+         (0, 255, 0),
+         (0, 0, 255),
+         (255, 255, 0))
 
 def dist(a, b):
     """
@@ -147,6 +147,7 @@ class Food:
         self.__x = random.randrange(self.__size, self.dw)
         self.__y = random.randrange(self.__size + inf_height, self.dh)
         self.__pos = [self.__x, self.__y]
+        self.__color = (0, 255, 0)
 
     def get_x(self):
         """This method return x coordinate of food."""
@@ -174,6 +175,9 @@ class Food:
         size = [sw // 3, sw // 2, sw]
         i = random.randrange(0, 3)
         self.__size = size[i]
+
+    def get_color(self):
+        return self.__color
 
     def set_pos(self, excl, snake_width):
         """
@@ -208,4 +212,7 @@ class Food:
             if count == 0:
                 break
         self.__pos = p
-#    def set_color():
+
+    def set_color(self):
+        i = random.randint(2, len(colors) - 1)
+        self.__color = colors[i]

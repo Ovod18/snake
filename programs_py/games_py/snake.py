@@ -76,6 +76,7 @@ def main(display_width, display_height, snake_width):
                 score += int(apple.get_size())
                 apple.set_size(s_w)
                 apple.set_pos(body, s_w)
+                apple.set_color()
 
 
 
@@ -124,7 +125,8 @@ def main(display_width, display_height, snake_width):
                                    (s_w/2), 0)
 
             apple_pos = apple.get_pos()
-            pygame.draw.circle(screen, RED, (apple_pos[0], apple_pos[1]),
+            a_color = apple.get_color()
+            pygame.draw.circle(screen, a_color, (apple_pos[0], apple_pos[1]),
                             apple.get_size()/2 , 0)
 
             pygame.display.update()

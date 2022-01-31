@@ -72,7 +72,8 @@ def main(display_width, display_height, snake_width):
             a_radius = apple.get_size() / 2
             d = items.dist(a_pos, h_pos)
             if d < (s_w / 2):
-                my_snake.eat(apple.get_size())
+                color = apple.get_color()
+                my_snake.eat(apple.get_size(), color)
                 score += int(apple.get_size())
                 apple.set_size(s_w)
                 apple.set_pos(body, s_w)
@@ -96,7 +97,9 @@ def main(display_width, display_height, snake_width):
 
             """Wasted by collision the snakes body."""
             for i in range(s_w * 2, len(body)):
-                d = items.dist(body[i], h_pos)
+                segment = body[i]
+                pos = segment.get_pos()
+                d = items.dist(pos, h_pos)
                 if d < s_w:
                     font = pygame.font.Font(None, 20)
                     text = "Your score: " + str(score)
@@ -121,8 +124,8 @@ def main(display_width, display_height, snake_width):
                              (d_w, INF_HEIGHT - s_rad))
 
             for segment in body:
-            pos = se
-                pygame.draw.circle(screen, GREEN, (segment[0], segment[1]),
+                pos = segment.get_pos()
+                pygame.draw.circle(screen, GREEN, (pos[0], pos[1]),
                                    (s_w/2), 0)
 
             apple_pos = apple.get_pos()

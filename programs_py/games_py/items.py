@@ -209,9 +209,10 @@ class Food:
         while 1 < 2:
             count = 0
             x = random.randrange(self.__size, (self.dw-self.__size))
-            y = random.randrange(self.inf_height + self.__size,
+            y = random.randrange(self.inf_height+self.__size,
                                  (self.dh-self.__size))
             p = [x, y]
+            
             for pos in excl:
                 if (dist(p, pos) >= near):
                     pos_valid = True

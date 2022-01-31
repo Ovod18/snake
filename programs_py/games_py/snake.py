@@ -124,7 +124,8 @@ def main(display_width, display_height, snake_width):
             """Rendering snake"""
             for segment in body:
                 pos = segment.get_pos()
-                pygame.draw.circle(screen, GREEN, (pos[0], pos[1]),
+                color = segment.get_color()
+                pygame.draw.circle(screen, color, (pos[0], pos[1]),
                                    (s_w/2), 0)
 
             """Rendering food"""

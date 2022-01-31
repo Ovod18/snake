@@ -79,8 +79,6 @@ def main(display_width, display_height, snake_width):
                 apple.set_pos(body, s_w)
                 apple.set_color()
 
-
-
             """Collision a border."""
             if h_pos[0] == 0:
                 pos = [d_w, h_pos[1]]
@@ -101,7 +99,7 @@ def main(display_width, display_height, snake_width):
                 pos = segment.get_pos()
                 d = items.dist(pos, h_pos)
                 if d < s_w:
-                    font = pygame.font.Font(None, 20)
+                    font = pygame.font.Font(None, s_w)
                     text = "Your score: " + str(score)
                     message = font.render(text, True, RED)
                     screen.blit(message, [X_CENTRE, Y_CENTRE])
@@ -123,11 +121,13 @@ def main(display_width, display_height, snake_width):
             pygame.draw.line(screen, YELLOW, (0, INF_HEIGHT - s_rad),
                              (d_w, INF_HEIGHT - s_rad))
 
+            """Rendering snake"""
             for segment in body:
                 pos = segment.get_pos()
                 pygame.draw.circle(screen, GREEN, (pos[0], pos[1]),
                                    (s_w/2), 0)
 
+            """Rendering food"""
             apple_pos = apple.get_pos()
             a_color = apple.get_color()
             pygame.draw.circle(screen, a_color, (apple_pos[0], apple_pos[1]),

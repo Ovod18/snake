@@ -55,7 +55,6 @@ class Snake:
         self.__segment = [Segment(snake_width)]
         self.__pos_change = [0, 0]
         self.__course = "empty"
-
     def set_course(self, course):
         """
         This method sets the course of snake movement.
@@ -186,14 +185,15 @@ class Food:
         self.__size = size[i]
 
     def get_color(self):
+        """This method return current color of food."""
         return self.__color
 
-    def set_pos(self, excl, snake_width):
+    def set_pos(self, snake_body, snake_width):
         """
         This method sets position of food.
         ARGIMENTS:
             snake_width (int): the width of snake.
-            excl [[x, y], ..., [n, m]]: the list of coordinates snake segments.
+            snake_body [Segment()]: list of segment objects.
         VARIABLES:
             sw (int): snake width.
             near (int): distance between the food and snake segments.
@@ -212,8 +212,9 @@ class Food:
             y = random.randrange(self.inf_height+self.__size,
                                  (self.dh-self.__size))
             p = [x, y]
-            
-            for pos in excl:
+            for i in range(len(snake_body)):
+                segment = snake_body[i]
+                pos = segment.get_pos()
                 if (dist(p, pos) >= near):
                     pos_valid = True
                 else:
@@ -224,5 +225,6 @@ class Food:
         self.__pos = p
 
     def set_color(self):
+        """This method sets color of food."""
         i = random.randint(2, len(colors) - 1)
         self.__color = colors[i]

@@ -1,4 +1,16 @@
-"""This module contains the describe of items."""
+"""
+This module contains the describe of items.
+
+Classes
+-------
+Segment
+Snake
+Food
+
+Functions
+---------
+dist
+"""
 import random
 import math
 
@@ -13,12 +25,14 @@ def dist(a, b):
     """
     Calculation the distance between two points.
 
-    ARGUMENTSS:
-        a[x,y]
-        b[x,y]
+    Arguments
+        a, b : list
+            List coordinates a[x, y]
+            x, y : int
 
-    RETURN:
-        d (int): distance.
+    Returns
+        d : int
+            Distance between a and b.
     """
 
     d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)

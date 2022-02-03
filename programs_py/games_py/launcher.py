@@ -13,6 +13,7 @@ import snake
 dw = 100
 dh = 100
 sw = 10
+
 def btn_play_click():
     """
         The handler of btn_play click.
@@ -26,11 +27,20 @@ def btn_play_click():
             this will couse an error.
 
     """
+
+    def is_valid(dw, dh, sw):
+        pass
+        if ((sw <= (dw//10)) or (sw <= (dh//10))):
+            return True
+        else:
+            return False
+
     try:
         dw = int(display_width_entry.get())
         dh = int(display_height_entry.get())
         sw = int(snake_width_entry.get())
-        start_game(dw, dh, sw)
+        if is_valid(dw, dh, sw):
+            start_game(dw, dh, sw)
     except ValueError:
         msg = "Check the entered data. It must be digits."
         mb.showerror("Error", msg)
@@ -39,9 +49,9 @@ def start_game(dw, dh, sw):
     """
     Start game.
     ARGUMENTS:
-        dw (int)= display width.
-        dh (int)= display weight.
-        sw (int)= snake width.
+        dw (int) = display width.
+        dh (int) = display weight.
+        sw (int) = snake width.
     """
     snake.main(dw, dh, sw)
 

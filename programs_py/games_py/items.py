@@ -173,16 +173,20 @@ class Food:
         """This method return the coordinates of food."""
         return self.__pos
 
-    def set_size(self, snake_width):
+    def set_size(self, *args):
         """
         This method sets the size of food.
-        ARGUMENTS:
-            snake_width (int): the width of snake.
         """
-        sw = snake_width
-        size = [sw // 3, sw // 2, sw]
-        i = random.randrange(0, 3)
-        self.__size = size[i]
+        if args[1] == "r":
+            sw = args[0]
+            r = True
+        else :
+            r = False
+            size = args[0]
+        if r:
+            size = [sw // 3, sw // 2, sw]
+            i = random.randrange(0, 3)
+            self.__size = size[i]
 
     def get_color(self):
         """This method return current color of food."""

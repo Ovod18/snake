@@ -75,7 +75,7 @@ def main(display_width, display_height, snake_width):
                 color = apple.get_color()
                 my_snake.eat(apple.get_size(), color)
                 score += int(apple.get_size())
-                apple.set_size(s_w)
+                apple.set_size(s_w, "r")
                 apple.set_pos(body, s_w)
                 apple.set_color()
 

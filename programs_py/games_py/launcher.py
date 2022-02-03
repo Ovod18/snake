@@ -10,7 +10,7 @@ import tkinter as tk
 import tkinter.messagebox as mb
 import snake
 
-DISPLAY_MIN = 150
+DISPLAY_MIN = 200
 SNAKE_MIN = 10
 
 

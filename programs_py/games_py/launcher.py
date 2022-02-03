@@ -10,6 +10,10 @@ import tkinter as tk
 import tkinter.messagebox as mb
 import snake
 
+DISPLAY_MIN = 150
+SNAKE_MIN = 10
+
+
 dw = 100
 dh = 100
 sw = 10
@@ -29,7 +33,7 @@ def btn_play_click():
     """
 
     def is_valid(dw, dh, sw):
-        if (dw >= 100) and (dh >= 100 ) and (sw >= 10):
+        if (dw >= DISPLAY_MIN) and (dh >= DISPLAY_MIN ) and (sw >= SNAKE_MIN):
             if ((sw <= (dw//10)) or (sw <= (dh//10))):
                 return True
             else:
@@ -83,7 +87,8 @@ setting_frame= tk.Frame(master = start_window,
 """The label "Display width" """
 display_width_lbl = tk.Label(master = setting_frame,
                              width = 27,
-                             text = "Display width",
+                             text = "Display width (>=" + str(DISPLAY_MIN) +
+                                     ")",
                              bg = "black",
                              fg = "yellow")
 display_width_lbl.pack()
@@ -95,7 +100,8 @@ display_width_entry.pack()
 
 """The label "Display height" """
 display_height_lbl = tk.Label(master = setting_frame,
-                              text = "Display height",
+                              text = "Display height (>=" + str(DISPLAY_MIN) +
+                                      ")",
                               bg = "black",
                               fg = "yellow")
 display_height_lbl.pack()
@@ -107,7 +113,7 @@ display_height_entry.pack()
 
 """The label "Snake width" """
 snake_width_lbl = tk.Label(master = setting_frame,
-                           text = "Snake width",
+                           text = "Snake width (>=" + str(SNAKE_MIN) + ")",
                            bg = "black",
                            fg = "yellow")
 snake_width_lbl.pack()

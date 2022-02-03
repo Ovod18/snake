@@ -20,6 +20,7 @@ def main(display_width, display_height, snake_width):
     INF_HEIGHT = 40
     X_CENTRE = d_w / 2
     Y_CENTRE = d_h / 2
+    crit_l = d_w * ((d_h-INF_HEIGHT)//s_w*3)
 
     """Creating the main window."""
     pygame.init()
@@ -75,7 +76,10 @@ def main(display_width, display_height, snake_width):
                 color = apple.get_color()
                 my_snake.eat(apple.get_size(), color)
                 score += int(apple.get_size())
-                apple.set_size(s_w, "r")
+                if (len(my_snake.get_body()) < crit_l):
+                    apple.set_size(s_w, "r")
+                else:
+                    apple.set_size(s_w, 0)
                 apple.set_pos(body, s_w)
                 apple.set_color()
 

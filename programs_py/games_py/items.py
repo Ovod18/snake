@@ -177,15 +177,18 @@ class Food:
         """
         This method sets the size of food.
         """
+        sw = args[0]
         if args[1] == "r":
-            sw = args[0]
             r = True
         else :
             r = False
-            size = args[0]
         if r:
             size = [sw // 3, sw // 2, sw]
             i = random.randrange(0, 3)
+            self.__size = size[i]
+        else:
+            i = args[1]
+            size = [sw // 3, sw // 2, sw]
             self.__size = size[i]
 
     def get_color(self):

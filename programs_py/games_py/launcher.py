@@ -29,9 +29,11 @@ def btn_play_click():
     """
 
     def is_valid(dw, dh, sw):
-        pass
-        if ((sw <= (dw//10)) or (sw <= (dh//10))):
-            return True
+        if (dw >= 100) and (dh >= 100 ) and (sw >= 10):
+            if ((sw <= (dw//10)) or (sw <= (dh//10))):
+                return True
+            else:
+                return False
         else:
             return False
 
@@ -41,6 +43,10 @@ def btn_play_click():
         sw = int(snake_width_entry.get())
         if is_valid(dw, dh, sw):
             start_game(dw, dh, sw)
+        else:
+            msg = "Check the entered data."
+            mb.showerror("Error", msg)
+
     except ValueError:
         msg = "Check the entered data. It must be digits."
         mb.showerror("Error", msg)

@@ -1,5 +1,5 @@
 """
-This module contains the describe of items.
+This module contains the describe of items for snake game.
 
 Classes
 -------
@@ -25,12 +25,14 @@ def dist(a, b):
     """
     Calculation the distance between two points.
 
-    Arguments
+    Parameters
+    ----------
         a, b : list
-            List coordinates a[x, y]
+            Coordinate list a[x, y]
             x, y : int
 
     Returns
+    -------
         d : int
             Distance between a and b.
     """
@@ -39,36 +41,136 @@ def dist(a, b):
     return d
 
 class Segment:
+    """
+    This class defines a segments of snake.
+
+    Attributes
+    ----------
+    self.__pos : list
+        Coordinate list self.__pos[x, y]
+        x, y : int
+    self.__width : int
+        The width of segment.
+    self.__color : tuple
+        The color of segment. (x, y, z)
+        x, y, z : int some value in range 256.
+
+    Methods
+    -------
+    get_pos()
+    get_width()
+    get_color()
+    set_pos()
+    set_width()
+    set_color()
+    """
+
     def __init__(self, snake_width):
         self.__pos = [100, 100]
         self.__width = snake_width
         self.__color = (0, 255, 0)
 
     def get_pos(self):
+        """
+        This method returns the position of segment.
+
+        Returns
+        -------
+        self.__pos : list
+            self.__pos[x, y] the coordinate list.
+            x, y : int
+        """
+
         return self.__pos
 
     def get_width(self):
+        """
+        This method returns the width of segment.
+
+        Returns
+        -------
+        self.__width : int
+        """
+
         return self.__width
 
     def get_color(self):
+        """
+        This method returns the color of segment.
+
+        Returns
+        -------
+        self.__color : tuple
+        """
+
         return self.__color
 
     def set_pos(self, pos):
+        """
+        This method sets the position of segment with pos.
+
+        Parameters
+        ----------
+        pos : list
+            pos[x, y] the coordinate list
+            x, y : int
+        """
+
         self.__pos = pos
 
     def set_width(self, width):
+        """
+        This method sets the width of segment.
+
+        Parameters
+        ----------
+        width :int
+            The value, what will be the width of the segment.
+        """
+
         self.__width = width
 
     def set_color(self, color):
+        """
+        This method sets the color of the segment.
+
+        Parameters
+        ----------
+        color : tuple
+            color(x, y, z)
+            x, y, z : int some value in range 256.
+        """
+
         self.__color = color
 
 class Snake:
+    """
+    This class defines the snake.
+
+    Attributes
+    ----------
+    self.__width : int
+        The width of the snake.
+    self.__segment : list
+        self.__segment[Segment(snake_width)]
+        Segment(snake_width) is an object of class Segment with snake_width.
+    self.__pos_change : list
+        self.__pos_change[x, y] the numbers of pixels of snake movement.
+        x, y : int
+    self.__course : str
+        self.__course maybe 'LEFT', 'RIGHT', 'UP', 'DOWN'.
+
+    See Also
+    --------
+    class Segment
+    """
 
     def __init__(self, snake_width):
         self.__width = snake_width
         self.__segment = [Segment(snake_width)]
         self.__pos_change = [0, 0]
         self.__course = "empty"
+
     def set_course(self, course):
         """
         This method sets the course of snake movement.

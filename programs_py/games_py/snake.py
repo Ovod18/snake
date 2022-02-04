@@ -20,7 +20,7 @@ def main(display_width, display_height, snake_width):
     INF_HEIGHT = 40
     X_CENTRE = d_w / 2
     Y_CENTRE = d_h / 2
-    crit_l = d_w * ((d_h-INF_HEIGHT)//s_w*3)
+    crit_l = d_w * ((d_h-INF_HEIGHT)//s_w*4)
 
     """Creating the main window."""
     pygame.init()

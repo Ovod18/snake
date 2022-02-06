@@ -1,10 +1,4 @@
-"""
-The launcher of snake game.
-VARIABLES:
-    dw (int): display width.
-    dh (int): display height.
-    sw (int): snake width
-"""
+"""The launcher of snake game."""
 
 import tkinter as tk
 import tkinter.messagebox as mb
@@ -20,19 +14,28 @@ sw = 10
 
 def btn_play_click():
     """
-        The handler of btn_play click.
+    The handler of btn_play click.
 
-        VARIABLES:
-            dw (int): display width.
-            dh (int): display height.
-            sw (int): snake width
-        NOTE:
-            The entered data (dw, dh, sw) must be digits. If data not digits,
-            this will couse an error.
-
+    NOTE
+    ----
+    The entered data (dw, dh, sw) must be digit.
+    If data is not digits, this will couse an error.
     """
 
     def is_valid(dw, dh, sw):
+        """
+        Validation input data.
+
+        Parameters
+        ----------
+        dw, dh, sw : int
+            The width, the height of display and the snake width.
+
+        Returns
+        -------
+        True, False : boolean
+            Returns 'True' if input data is valid, else returns 'False'.
+        """
         if (dw >= DISPLAY_MIN) and (dh >= DISPLAY_MIN ) and (sw >= SNAKE_MIN):
             if ((sw <= (dw//10)) or (sw <= (dh//10))):
                 return True
@@ -57,12 +60,18 @@ def btn_play_click():
 
 def start_game(dw, dh, sw):
     """
-    Start game.
-    ARGUMENTS:
-        dw (int) = display width.
-        dh (int) = display weight.
-        sw (int) = snake width.
+    Start the game.
+
+    Parameters
+    ----------
+    dw : int
+        Display width.
+    dh : int
+        Display weight
+    sw : int
+        Snake width.
     """
+
     snake.main(dw, dh, sw)
 
 """Seting start window."""

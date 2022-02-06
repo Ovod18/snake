@@ -1,3 +1,5 @@
+"""This module contains the main function of 'snake' game"""
+
 import pygame
 import random
 import time
@@ -13,6 +15,17 @@ BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
 def main(display_width, display_height, snake_width):
+    """
+    The main function of 'snake' game.
+
+    Parameters
+    ----------
+    display_width, display_height, snake_width : int
+
+    See Also
+    --------
+    module items
+    """
 
     d_w = display_width
     d_h = display_height

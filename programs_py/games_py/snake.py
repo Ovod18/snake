@@ -30,7 +30,7 @@ def main(display_width, display_height, snake_width):
     d_w = display_width
     d_h = display_height
     s_w = snake_width
-    INF_HEIGHT = 40
+    INF_HEIGHT = s_w
     X_CENTRE = d_w / 2
     Y_CENTRE = d_h / 2
     crit_l = d_w * ((d_h-INF_HEIGHT)//s_w*4)
@@ -126,13 +126,14 @@ def main(display_width, display_height, snake_width):
                     break
 
             """Frame out to the screen."""
-
             screen.fill(BLACK)
+
             """Showing current informatoin"""
-            font = pygame.font.Font(None, 30)
+            size = s_w - s_w // 4
+            font = pygame.font.Font(None, size)
             text = "Your score: " + str(score)
             message = font.render(text, True, YELLOW)
-            screen.blit(message, [6, 6])
+            screen.blit(message, [0, 0])
 
             s_rad = s_w / 2
             pygame.draw.line(screen, YELLOW, (0, INF_HEIGHT - s_rad),

@@ -203,7 +203,7 @@ class Snake:
             The nubers of pixels of snake movement.
         """
 
-        step = 1
+        step = 2
         self.__course = course
         if self.__course == "LEFT":
             self.__pos_change = [-step, 0]

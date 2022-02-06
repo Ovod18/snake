@@ -28,8 +28,8 @@ def btn_play_click():
 
         Parameters
         ----------
-        dw, dh, sw : int
-            The width, the height of display and the snake width.
+        dw, dh, sw, ss : int
+            The width, the height of display and the width, the speed of snake.
 
         Returns
         -------
@@ -48,8 +48,9 @@ def btn_play_click():
         dw = int(display_width_entry.get())
         dh = int(display_height_entry.get())
         sw = int(snake_width_entry.get())
+        ss = int(snake_speed_entry.get())
         if is_valid(dw, dh, sw):
-            start_game(dw, dh, sw)
+            start_game(dw, dh, sw, ss)
         else:
             msg = "Check the entered data."
             mb.showerror("Error", msg)
@@ -58,21 +59,17 @@ def btn_play_click():
         msg = "Check the entered data. It must be digits."
         mb.showerror("Error", msg)
 
-def start_game(dw, dh, sw):
+def start_game(dw, dh, sw, ss):
     """
     Start the game.
 
     Parameters
     ----------
-    dw : int
-        Display width.
-    dh : int
-        Display weight
-    sw : int
-        Snake width.
+    dw, dh, sw, ss : int
+        The width, the height of display and the width, the speed of snake.
     """
 
-    snake.main(dw, dh, sw)
+    snake.main(dw, dh, sw, ss)
 
 """Seting start window."""
 start_window = tk.Tk()
@@ -133,6 +130,22 @@ snake_width_entry.insert(0, "20")
 snake_width_entry.pack()
 
 
+
+
+
+"""The label "Snake speed """
+snake_speed_lbl = tk.Label(master = setting_frame,
+                           text = "Snake speed",
+                           bg = "black",
+                           fg = "yellow")
+snake_speed_lbl.pack()
+
+"""The text box which sets snake speed"""
+snake_speed_entry = tk.Entry(master = setting_frame)
+snake_speed_entry.insert(0, "1")
+snake_speed_entry.pack()
+
+
 """The button of start the game."""
 play_btn = tk.Button(master = setting_frame,
                      text = "Play",
@@ -142,7 +155,6 @@ play_btn = tk.Button(master = setting_frame,
                      bg = "blue",
                      fg = "yellow")
 play_btn.pack()
-
 frame1.pack()
 setting_frame.pack()
 start_window.mainloop()

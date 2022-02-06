@@ -188,7 +188,7 @@ class Snake:
         self.__pos_change = [0, 0]
         self.__course = "empty"
 
-    def set_course(self, course):
+    def set_course(self, course, speed):
         """
         This method sets the course of snake movement.
 
@@ -196,14 +196,11 @@ class Snake:
         ----------
         course : str
             The course of snake movement.
-
-        Notes
-        -----
-        step : int
+        speed : int
             The nubers of pixels of snake movement.
         """
 
-        step = 2
+        step = speed
         self.__course = course
         if self.__course == "LEFT":
             self.__pos_change = [-step, 0]

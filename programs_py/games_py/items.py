@@ -160,6 +160,23 @@ class Snake:
     self.__course : str
         self.__course maybe 'LEFT', 'RIGHT', 'UP', 'DOWN'.
 
+    Methods
+    -------
+    set_course(course)
+        This method sets the course of snake movement.
+    move()
+        This method defines snake movement
+    set_pos(pos)
+        This method sets position of snake head
+    eat()
+        This method defines eating snake food
+    get_course()
+        This method return current course of snake movement
+    get_head_pos()
+        This method return current position of snake head
+    get_body()
+        This method return the list of segments of snake
+
     See Also
     --------
     class Segment
@@ -174,9 +191,18 @@ class Snake:
     def set_course(self, course):
         """
         This method sets the course of snake movement.
-        VARIABLES:
-            step (int): the nubers of pixels of snake movement.
+
+        Parameters
+        ----------
+        course : str
+            The course of snake movement.
+
+        Notes
+        -----
+        step : int
+            The nubers of pixels of snake movement.
         """
+
         step = 1
         self.__course = course
         if self.__course == "LEFT":
@@ -206,7 +232,16 @@ class Snake:
             i -= 1
 
     def set_pos(self, pos):
-        """This method sets position of snake head"""
+        """
+        This method sets position of snake head
+
+        Parameters
+        ----------
+        pos : list
+            pos[x, y] is list of coordinates.
+            x, y : int
+        """
+
         head = self.__segment[0]
         head.set_pos(pos)
 
@@ -214,9 +249,13 @@ class Snake:
         """
         This method defines eating snake food
 
-        ARGUMENTS:
-            food_size (int): size of food
+        Parameters
+        ----------
+
+        food_size : int
+            The size of food.
         """
+
         for i in range(food_size):
             segment = self.__segment[-1]
             pos = segment.get_pos()
@@ -229,40 +268,77 @@ class Snake:
             self.__segment.append(new_segment)
 
     def get_course(self):
-        """This method return current course of snake movement"""
+        """
+        This method return current course of snake movement
+
+        Returns
+        -------
+        self.__course : str
+            self.__course is the course of snake movement.
+        """
+
         return self.__course
 
     def get_head_pos(self):
-        """This method return current position of snake head"""
+        """
+        This method return current position of snake head
+        Returns
+        -------
+        pos : list
+            The pos is the list of snake head coordinates.
+        """
+
         head = self.__segment[0]
         pos = head.get_pos()
         return pos
 
     def get_body(self):
-        """This method return the list of segments of snake"""
+        """
+        This method return the list of segments of snake
+        Returns
+        -------
+        self.__segment : list
+            self.segment is the list of snake segments.
+        """
+
         return self.__segment
 
 class Food:
     """
     This class describes a food.
 
-    ATTRIBUTES:
-        self.__size (int): the size of food.
-        self.__dw (int): the width of the display.
-        self.__dh (int): the height of the display.
-        self.__inf height (int): the height of the information line.
-        self.__x (int): the x coordinate of food.
-        self.__y (int): the y coordinate of food.
-        self.__pos [self.__x, self.__y]: position of food.
+    Attributes
+        self.__size : int
+            The size of food.
+        self.__dw : int
+            The width of the display.
+        self.__dh : int
+            The height of the display.
+        self.__inf height : int
+            The height of the information line.
+        self.__x : int
+            The x coordinate of food.
+        self.__y : int
+            The y coordinate of food.
+        self.__pos [self.__x, self.__y] : list
+            The list of food coordinates.
+            self.__x, self.__y : int
 
-    METHODS:
-        get_x(): return x coordinate of food.
-        get_y(): return y coordinate of food.
-        get_size(): return the size of food.
-        get_pos(): return the position of food.
-        set_size(): sets self.__size.
-        set_pos(): sets position of food.
+    Methods
+        get_x()
+            Return x coordinate of food.
+        get_y()
+            Return y coordinate of food.
+        get_size()
+            Return the size of food.
+        get_pos()
+            Return the position of food.
+        set_size()
+            Sets self.__size.
+        set_pos()
+            Sets position of food.
     """
+
     def __init__(self, snake_width, display_width, display_height, inf_height):
         self.__size = snake_width // 3
         self.dw = display_width
@@ -274,25 +350,70 @@ class Food:
         self.__color = (0, 255, 0)
 
     def get_x(self):
-        """This method return x coordinate of food."""
+        """
+        This method return x coordinate of food.
+
+        Returns
+        -------
+        self.__x : int
+            self.__x is value of X coordinate of food.
+        """
+
         return self.__x
 
     def get_y(self):
-        """This method return y coordinate of food."""
+        """
+        This method return y coordinate of food.
+
+        Returns
+        -------
+        self.__y : int
+            self.__y is value of Y coordinate of food.
+
+        """
+
         return self.__y
 
     def get_size(self):
-        """This method return the size of food."""
+        """
+        This method return the size of food.
+
+        Returns
+        -------
+        self.__size : int
+            self.__size is the size of food.
+
+        """
+
         return self.__size
 
     def get_pos(self):
-        """This method return the coordinates of food."""
+        """
+        This method return the coordinates of food.
+
+        Returns
+        -------
+        self.__pos : list
+            self.__pos is the list of food coordinates.
+        """
+
         return self.__pos
 
     def set_size(self, *args):
         """
         This method sets the size of food.
+
+        Parameters
+        ----------
+        args : int
+            args contain the snake width, the food size.
+            snake width: int
+            food size : int, str
+            The food size maybe int value in range(2) or 'r'.
+            If the food size is 'r' then self.__size will be random value
+            in (sw // 3, sw // 2, sw), where sw is the snake width.
         """
+
         sw = args[0]
         if args[1] == "r":
             r = True
@@ -308,24 +429,44 @@ class Food:
             self.__size = size[i]
 
     def get_color(self):
-        """This method return current color of food."""
+        """
+        This method return current color of food.
+
+        Returns
+        -------
+        self.__color : tuple
+            self.__color(x, y, z)
+            x, y, z : int value in range(256)
+        """
+
         return self.__color
 
     def set_pos(self, snake_body, snake_width):
         """
         This method sets position of food.
-        ARGIMENTS:
-            snake_width (int): the width of snake.
-            snake_body [Segment()]: list of segment objects.
-        VARIABLES:
-            sw (int): snake width.
-            near (int): distance between the food and snake segments.
-            pos_valid (boolean): the flag of, which defines validity of assumed
-                                food position.
-            x (int): x coordinate of food position.
-            y (int): y coordinate of food position.
-            p [x, y]: coordinates of food.
+
+        Parameters
+        ----------
+            snake_width : int
+                The width of snake.
+            snake_body [Segment()] : list
+                The list of segment objects.
+        Note
+        ----
+            sw : int
+                Snake width.
+            near : int
+                Distance between the food and snake segments.
+            pos_valid : boolean
+                The flag of, which defines validity of assumed food position.
+            x : int
+                The X coordinate of food position.
+            y : int
+                The Y coordinate of food position.
+            p : list
+                p[x, y] is list of food coordinates.
         """
+
         sw = snake_width
         near = sw / 2 + self.__size
         pos_valid = False

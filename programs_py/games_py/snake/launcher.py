@@ -73,6 +73,7 @@ def start_game(dw, dh, sw, ss):
 
 """Seting start window."""
 start_window = tk.Tk()
+start_window.title("launcher")
 
 frame1 = tk.Frame(master = start_window,
                   bg = "black")

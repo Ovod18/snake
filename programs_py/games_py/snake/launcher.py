@@ -59,6 +59,12 @@ def btn_play_click():
         msg = "Check the entered data. It must be digits."
         mb.showerror("Error", msg)
 
+def start(event):
+    """Start 'btn_play_click' with some event'"""
+    btn_play_click()
+
+
+
 def start_game(dw, dh, sw, ss):
     """
     Start the game.
@@ -74,6 +80,9 @@ def start_game(dw, dh, sw, ss):
 """Seting start window."""
 start_window = tk.Tk()
 start_window.title("launcher")
+
+"""Start 'btn_play_click' with some event'"""
+start_window.bind("<Return>", start)
 
 frame1 = tk.Frame(master = start_window,
                   bg = "black")
@@ -130,10 +139,6 @@ snake_width_entry = tk.Entry(master = setting_frame)
 snake_width_entry.insert(0, "20")
 snake_width_entry.pack()
 
-
-
-
-
 """The label "Snake speed """
 snake_speed_lbl = tk.Label(master = setting_frame,
                            text = "Snake speed",
@@ -155,6 +160,7 @@ play_btn = tk.Button(master = setting_frame,
                      height = 3,
                      bg = "blue",
                      fg = "yellow")
+
 play_btn.pack()
 frame1.pack()
 setting_frame.pack()

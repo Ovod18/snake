@@ -60,7 +60,15 @@ def btn_play_click():
         mb.showerror("Error", msg)
 
 def start(event):
-    """Start 'btn_play_click' with some event'"""
+    """
+    Start 'btn_play_click' with some event.
+
+    Parameters
+    ----------
+    event : object
+        event is some event.
+        For exaple: if 'Enter' key is pressed, then event will be '<Return>'.
+    """
     btn_play_click()
 
 

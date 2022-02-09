@@ -1,18 +1,26 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>launcher module &#8212; snake  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="snake module" href="snake.html" />
@@ -20,51 +28,69 @@
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
-  
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head><body>
+  </head>
+  <body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
           <div class="body" role="main">
             
-  <section id="launcher-module">
-<h1>launcher module<a class="headerlink" href="#launcher-module" title="Permalink to this headline">¶</a></h1>
-</section>
+  <div class="section" id="module-launcher">
+<span id="launcher-module"></span><h1>launcher module<a class="headerlink" href="#module-launcher" title="Permalink to this headline">¶</a></h1>
+<p>The launcher of snake game.</p>
+<dl class="function">
+<dt id="launcher.btn_play_click">
+<code class="descclassname">launcher.</code><code class="descname">btn_play_click</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#launcher.btn_play_click" title="Permalink to this definition">¶</a></dt>
+<dd><p>The handler of btn_play click.</p>
+<p>The entered data (dw, dh, sw) must be digit.
+If data is not digits, this will couse an error.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="launcher.frame1">
+<code class="descclassname">launcher.</code><code class="descname">frame1</code><em class="property"> = &lt;tkinter.Frame object .!frame&gt;</em><a class="headerlink" href="#launcher.frame1" title="Permalink to this definition">¶</a></dt>
+<dd><p>The label “Welcome to the “Snake” game!”</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="launcher.setting_frame">
+<code class="descclassname">launcher.</code><code class="descname">setting_frame</code><em class="property"> = &lt;tkinter.Frame object .!frame2&gt;</em><a class="headerlink" href="#launcher.setting_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>The label “Display width”</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="launcher.start">
+<code class="descclassname">launcher.</code><code class="descname">start</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#launcher.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start ‘btn_play_click’ with some event.</p>
+<dl class="docutils">
+<dt>event <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd>event is some event.
+For exaple: if ‘Enter’ key is pressed, then event will be ‘&lt;Return&gt;’.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="launcher.start_game">
+<code class="descclassname">launcher.</code><code class="descname">start_game</code><span class="sig-paren">(</span><em>dw</em>, <em>dh</em>, <em>sw</em>, <em>ss</em><span class="sig-paren">)</span><a class="headerlink" href="#launcher.start_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the game.</p>
+<dl class="docutils">
+<dt>dw, dh, sw, ss <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The width, the height of display and the width, the speed of snake.</dd>
+</dl>
+</dd></dl>
+
+</div>
 
 
           </div>
-          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">snake</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">snake</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="items.html">items module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">launcher module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="snake.html">snake module</a></li>
-</ul>
-</li>
-</ul>
-
-<div class="relations">
+        <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
@@ -75,24 +101,23 @@
   </ul></li>
 </ul>
 </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/launcher.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -101,8 +126,8 @@
       &copy;2022, Ovod18.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |
       <a href="_sources/launcher.rst.txt"

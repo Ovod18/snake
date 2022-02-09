@@ -25,16 +25,13 @@ def dist(a, b):
     """
     Calculation the distance between two points.
 
-    Parameters
-    ----------
-        a, b : list
-            Coordinate list a[x, y]
-            x, y : int
+    :param a: point coordinates a[x, y]
+    :type a: list
+    :param b: point coordinates b [x, y]
+    :type b: list
 
-    Returns
-    -------
-        d : int
-            Distance between a and b.
+    :return d: distance between a and b
+    :rtype d: int
     """
 
     d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)

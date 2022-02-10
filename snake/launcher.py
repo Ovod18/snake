@@ -13,6 +13,7 @@ dh = 100
 sw = 10
 
 def main():
+    """The main function in launcher.py"""
     def btn_play_click():
         """
         The handler of btn_play click.
@@ -30,14 +31,15 @@ def main():
             Parameters
             ----------
             dw, dh, sw, ss : int
-                The width, the height of display and the width, the speed of snake.
+                The width, the height of display and
+                    the width, the speed of snake.
 
             Returns
             -------
             True, False : boolean
                 Returns 'True' if input data is valid, else returns 'False'.
             """
-            if (dw >= DISPLAY_MIN) and (dh >= DISPLAY_MIN ) and (sw >= SNAKE_MIN):
+            if (dw>=DISPLAY_MIN) and (dh>=DISPLAY_MIN) and (sw>=SNAKE_MIN):
                 if ((sw <= (dw//10)) or (sw <= (dh//10))):
                     return True
                 else:
@@ -68,7 +70,8 @@ def main():
         ----------
         event : object
             event is some event.
-            For exaple: if 'Enter' key is pressed, then event will be '<Return>'.
+            For exaple: if 'Enter' key is pressed,
+                then event will be '<Return>'.
         """
         btn_play_click()
 
@@ -112,7 +115,7 @@ def main():
     """The label "Display width" """
     display_width_lbl = tk.Label(master = setting_frame,
                                  width = 27,
-                                 text = "Display width (>=" + str(DISPLAY_MIN) +
+                                 text = "Display width (>="+str(DISPLAY_MIN) +
                                          ")",
                                  bg = "black",
                                  fg = "yellow")
@@ -125,7 +128,7 @@ def main():
 
     """The label "Display height" """
     display_height_lbl = tk.Label(master = setting_frame,
-                                  text = "Display height (>=" + str(DISPLAY_MIN) +
+                                  text = "Display height (>="+str(DISPLAY_MIN)+
                                           ")",
                                   bg = "black",
                                   fg = "yellow")

@@ -30,8 +30,8 @@ def dist(a, b):
     :param b: point coordinates b [x, y]
     :type b: list
 
-    :return d: distance between a and b
-    :rtype d: int
+    :rtype: int
+    :return: d, distance between a and b
     """
 
     d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)

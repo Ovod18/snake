@@ -1,19 +1,38 @@
-"""
-    :platform: "Linux"
+"""This is the launcher for snake game.
+
+    :platform: Linux
+    :author: Ovod18
+
+    |
 """
 
 import tkinter as tk
 import tkinter.messagebox as mb
 import snake
 
-DISPLAY_MIN, SNAKE_MIN = 200, 10
-"""
+DISPLAY_MIN = 200
+"""The minimum display width, display height.
+
     :type: int
+    :value: 200
+
+    |
+"""
+
+SNAKE_MIN = 10
+"""The minimum snake width.
+
+    :type: int
+    :value: 10
+
+    |
 """
 
 dw, dh, sw = 200, 200, 20
 """
    :type: int
+
+   |
 """
 
 def is_valid(dw, dh, sw):
@@ -24,6 +43,8 @@ def is_valid(dw, dh, sw):
     :param int sw: The snake width
     :returns: True or False
     :rtype: boolean
+
+    |
     """
 
     if (dw>=DISPLAY_MIN) and (dh>=DISPLAY_MIN) and (sw>=SNAKE_MIN):
@@ -35,7 +56,9 @@ def is_valid(dw, dh, sw):
         return False
 
 def btn_play_click():
-    """The handler of btn_play click."""
+    """The handler of btn_play click.
+    |
+    """
 
     try:
         dw = int(display_width_entry.get())
@@ -56,6 +79,8 @@ def start(event):
     """Start 'btn_play_click' with some event.
 
     :param object event: some event
+
+    |
     """
 
     btn_play_click()
@@ -67,6 +92,8 @@ def start_game(dw, dh, sw, ss):
     :param int dh: display height
     :param int sw: snake width
     :param int ss: snake width
+
+    |
     """
 
     snake.main(dw, dh, sw, ss)
@@ -158,7 +185,10 @@ play_btn = tk.Button(master = setting_frame,
 play_btn.pack()
 
 def main():
-    """The main function in launcher.py"""
+    """The main function in launcher.py
+
+    |
+    """
 
     start_window.mainloop()
 

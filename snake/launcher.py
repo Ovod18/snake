@@ -28,11 +28,13 @@ SNAKE_MIN = 10
     |
 """
 
-dw, dh, sw = 200, 200, 20
-"""
-   :type: int
+d_size = [200, 200]
+"""The display size.
 
-   |
+    :type: list[int, int]
+    :value: 200,200
+
+    |
 """
 
 def is_valid(dw, dh, sw):
@@ -47,8 +49,8 @@ def is_valid(dw, dh, sw):
     |
     """
 
-    if (dw>=DISPLAY_MIN) and (dh>=DISPLAY_MIN) and (sw>=SNAKE_MIN):
-        if ((sw <= (dw//10)) or (sw <= (dh//10))):
+    if (d_size[0]>=DISPLAY_MIN) and (d_size[1]>=DISPLAY_MIN) and (sw>=SNAKE_MIN):
+        if ((sw <= (d_size[0]//10)) or (sw <= (d_size[1]//10))):
             return True
         else:
             return False
@@ -57,16 +59,17 @@ def is_valid(dw, dh, sw):
 
 def btn_play_click():
     """The handler of btn_play click.
+
     |
     """
 
     try:
-        dw = int(display_width_entry.get())
-        dh = int(display_height_entry.get())
+        d_size[0] = int(display_width_entry.get())
+        d_size[1] = int(display_height_entry.get())
         sw = int(snake_width_entry.get())
         ss = int(snake_speed_entry.get())
-        if is_valid(dw, dh, sw):
-            start_game(dw, dh, sw, ss)
+        if is_valid(d_size[0], d_size[1], sw):
+            start_game(d_size[0], d_size[1], sw, ss)
         else:
             msg = "Check the entered data."
             mb.showerror("Error", msg)
@@ -76,7 +79,7 @@ def btn_play_click():
         mb.showerror("Error", msg)
 
 def start(event):
-    """Start 'btn_play_click' with some event.
+    """Start :py:func:`.btn_play_click` with some event.
 
     :param object event: some event
 
@@ -96,7 +99,7 @@ def start_game(dw, dh, sw, ss):
     |
     """
 
-    snake.main(dw, dh, sw, ss)
+    snake.main(d_size[0], d_size[1], sw, ss)
 
 # Seting start window.
 start_window = tk.Tk()

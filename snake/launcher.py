@@ -16,25 +16,27 @@ dw, dh, sw = 200, 200, 20
    :type: int
 """
 
-#def main():
-"""The main function in launcher.py"""
+def is_valid(dw, dh, sw):
+    """
+    Validation input data.
+
+    :param int dw: The display width
+    :param int dh: The display height
+    :param int sw: The snake width
+    :returns: True or False
+    :rtype: boolean
+    """
+    if (dw>=DISPLAY_MIN) and (dh>=DISPLAY_MIN) and (sw>=SNAKE_MIN):
+        if ((sw <= (dw//10)) or (sw <= (dh//10))):
+            return True
+        else:
+            return False
+    else:
+        return False
+
 
 def btn_play_click():
     """The handler of btn_play click"""
-
-    def is_valid(dw, dh, sw):
-        """
-        Validation input data.
-
-        :param int dw: The display width
-        """
-        if (dw>=DISPLAY_MIN) and (dh>=DISPLAY_MIN) and (sw>=SNAKE_MIN):
-            if ((sw <= (dw//10)) or (sw <= (dh//10))):
-                return True
-            else:
-                return False
-        else:
-            return False
 
     try:
         dw = int(display_width_entry.get())
@@ -163,6 +165,7 @@ play_btn = tk.Button(master = setting_frame,
                      fg = "yellow")
 
 def main():
+    """The main function in launcher.py"""
     play_btn.pack()
     frame1.pack()
     setting_frame.pack()

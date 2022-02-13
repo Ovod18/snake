@@ -1,15 +1,9 @@
-"""
-This module contains the describe of items for snake game.
+"""This module contains the describe of items for snake game.
 
-Classes
--------
-Segment
-Snake
-Food
+:platform: Linux
+:author: Ovod18
 
-Functions
----------
-dist
+|
 """
 import random
 import math
@@ -20,6 +14,12 @@ colors = ((255, 255, 255),
          (0, 255, 0),
          (0, 0, 255),
          (255, 255, 0))
+"""RGB colors values.
+
+:type: tuple
+
+|
+"""
 
 def dist(a, b):
     """
@@ -31,35 +31,35 @@ def dist(a, b):
     :type b: list
 
     :rtype: int
-    :return: d, distance between a and b
+    :return: distance between a and b
+
+    |
     """
 
-    d = math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)
-    return d
+    return math.sqrt((b[0] - a[0])**2 +(b[1] - a[1])**2)
 
 class Segment:
-    """
-    This class defines a segments of snake.
+    """This class defines snake segments.
 
-    Attributes
-    ----------
-    self.__pos : list
-        Coordinate list self.__pos[x, y]
-        x, y : int
-    self.__width : int
-        The width of segment.
-    self.__color : tuple
-        The color of segment. (x, y, z)
-        x, y, z : int some value in range 256.
+    .. py:method:: get_pos()
+    .. py:method:: get_width()
+    .. py:method:: get_color()
+    .. py:method:: set_pos()
+    .. py:method:: set_width()
+    .. py:method:: set_color()
 
-    Methods
-    -------
-    get_pos()
-    get_width()
-    get_color()
-    set_pos()
-    set_width()
-    set_color()
+    |
+
+    .. py:attribute:: pos
+        :type: list
+        :value: [100, 100]
+    .. py:attribute:: width
+        :type: int
+    .. py:attribute:: color
+        :type: tuple
+        :value: 0, 255, 0
+
+    |
     """
 
     def __init__(self, snake_width):
@@ -68,74 +68,64 @@ class Segment:
         self.__color = (0, 255, 0)
 
     def get_pos(self):
-        """
-        This method returns the position of segment.
+        """This method returns the position of segment.
 
-        Returns
-        -------
-        self.__pos : list
-            self.__pos[x, y] the coordinate list.
-            x, y : int
+        :return: The list of segment coordinates.
+        :rtype: list
+
+        |
         """
 
         return self.__pos
 
     def get_width(self):
-        """
-        This method returns the width of segment.
+        """This method returns the width of segment.
 
-        Returns
-        -------
-        self.__width : int
+        :returns: A segment width.
+        :rtype: int
+
+        |
         """
 
         return self.__width
 
     def get_color(self):
-        """
-        This method returns the color of segment.
+        """This method returns the color of segment.
 
-        Returns
-        -------
-        self.__color : tuple
+        :returns: A segment color.
+        :rtype: tuple
+
+        |
         """
 
         return self.__color
 
     def set_pos(self, pos):
-        """
-        This method sets the position of segment with pos.
+        """This method sets the position of segment with pos.
 
-        Parameters
-        ----------
-        pos : list
-            pos[x, y] the coordinate list
-            x, y : int
+        :param list pos: The list of segment coordinates.
+
+        |
         """
 
         self.__pos = pos
 
     def set_width(self, width):
-        """
-        This method sets the width of segment.
+        """This method sets the width of segment.
 
-        Parameters
-        ----------
-        width :int
-            The value, what will be the width of the segment.
+        :param int width: A segment width.
+
+        |
         """
 
         self.__width = width
 
     def set_color(self, color):
-        """
-        This method sets the color of the segment.
+        """This method sets the color of the segment.
 
-        Parameters
-        ----------
-        color : tuple
-            color(x, y, z)
-            x, y, z : int some value in range 256.
+        :param tuple color: A segment color.
+
+        |
         """
 
         self.__color = color

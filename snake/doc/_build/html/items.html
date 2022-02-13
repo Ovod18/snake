@@ -36,15 +36,17 @@
   <section id="module-items">
 <span id="items-module"></span><h1>items module<a class="headerlink" href="#module-items" title="Permalink to this headline">¶</a></h1>
 <p>This module contains the describe of items for snake game.</p>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
-<p>Segment
-Snake
-Food</p>
-</section>
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<p>dist</p>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Linux</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>Ovod18</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <dl class="py class">
 <dt class="sig sig-object py" id="items.Food">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">Food</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snake_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inf_height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Food" title="Permalink to this definition">¶</a></dt>
@@ -193,78 +195,149 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <dt class="sig sig-object py" id="items.Segment">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">Segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snake_width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>This class defines a segments of snake.</p>
-<dl class="simple">
-<dt>self.__pos<span class="classifier">list</span></dt><dd><p>Coordinate list self.__pos[x, y]
-x, y : int</p>
-</dd>
-<dt>self.__width<span class="classifier">int</span></dt><dd><p>The width of segment.</p>
-</dd>
-<dt>self.__color<span class="classifier">tuple</span></dt><dd><p>The color of segment. (x, y, z)
-x, y, z : int some value in range 256.</p>
-</dd>
-</dl>
-<p>get_pos()
-get_width()
-get_color()
-set_pos()
-set_width()
-set_color()</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="items.Segment.get_color">
-<span class="sig-name descname"><span class="pre">get_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.get_color" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method returns the color of segment.</p>
-<p>self.__color : tuple</p>
-</dd></dl>
-
+<p>This class defines snake segments.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="items.Segment.get_pos">
 <span class="sig-name descname"><span class="pre">get_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.get_pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method returns the position of segment.</p>
-<dl class="simple">
-<dt>self.__pos<span class="classifier">list</span></dt><dd><p>self.__pos[x, y] the coordinate list.
-x, y : int</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="items.Segment.get_width">
 <span class="sig-name descname"><span class="pre">get_width</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.get_width" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method returns the width of segment.</p>
-<p>self.__width : int</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="items.Segment.set_color">
-<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.set_color" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method sets the color of the segment.</p>
-<dl class="simple">
-<dt>color<span class="classifier">tuple</span></dt><dd><p>color(x, y, z)
-x, y, z : int some value in range 256.</p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="items.Segment.get_color">
+<span class="sig-name descname"><span class="pre">get_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.get_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="items.Segment.set_pos">
-<span class="sig-name descname"><span class="pre">set_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.set_pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method sets the position of segment with pos.</p>
-<dl class="simple">
-<dt>pos<span class="classifier">list</span></dt><dd><p>pos[x, y] the coordinate list
-x, y : int</p>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">set_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.set_pos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="items.Segment.set_width">
-<span class="sig-name descname"><span class="pre">set_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.set_width" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method sets the width of segment.</p>
-<dl class="simple">
-<dt>width :int</dt><dd><p>The value, what will be the width of the segment.</p>
+<span class="sig-name descname"><span class="pre">set_width</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.set_width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="items.Segment.set_color">
+<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.set_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.Segment.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[100,</span> <span class="pre">100]</span></em><a class="headerlink" href="#items.Segment.pos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.Segment.width">
+<span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.Segment.width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.Segment.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0,</span> <span class="pre">255,</span> <span class="pre">0</span></em><a class="headerlink" href="#items.Segment.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">get_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the color of segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A segment color.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
 </dd>
 </dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">get_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the position of segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The list of segment coordinates.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">get_width</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the width of segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A segment width.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sets the color of the segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>color</strong> (<em>tuple</em>) – A segment color.</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">set_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sets the position of segment with pos.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pos</strong> (<em>list</em>) – The list of segment coordinates.</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">set_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sets the width of segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>width</strong> (<em>int</em>) – A segment width.</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -378,6 +451,20 @@ x, y : int</p>
 
 </dd></dl>
 
+<dl class="py data">
+<dt class="sig sig-object py" id="items.colors">
+<span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">colors</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((255,</span> <span class="pre">255,</span> <span class="pre">255),</span> <span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0),</span> <span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0),</span> <span class="pre">(0,</span> <span class="pre">255,</span> <span class="pre">0),</span> <span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">255),</span> <span class="pre">(255,</span> <span class="pre">255,</span> <span class="pre">0))</span></em><a class="headerlink" href="#items.colors" title="Permalink to this definition">¶</a></dt>
+<dd><p>RGB colors values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="items.dist">
 <span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.dist" title="Permalink to this definition">¶</a></dt>
@@ -393,12 +480,14 @@ x, y : int</p>
 <dd class="field-even"><p>int</p>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>d, distance between a and b</p>
+<dd class="field-odd"><p>distance between a and b</p>
 </dd>
 </dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </dd></dl>
 
-</section>
 </section>
 
 

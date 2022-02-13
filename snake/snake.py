@@ -2,7 +2,6 @@
 
     :platform: Linux
     :author: Ovod18
-
     |
 """
 
@@ -12,56 +11,70 @@ import time
 import math
 import items
 
-#FPS = 60
-#WHITE = (255, 255, 255)
-#BLACK = (0, 0, 0)
-#RED = (255, 0, 0)
-#GREEN = (0, 255, 0)
-#BLUE = (0, 0, 255)
-#YELLOW = (255, 255, 0)
+FPS = 60
+INF_HEIGHT : int
+"""The information line height.
+    |
+"""
 
-def main(display_width, display_height, snake_width, snake_speed):
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+YELLOW = (255, 255, 0)
+
+crit_l : int
+"""The critical value of snake length.
+    |
+"""
+
+def crit_length(dw, dh, ih, sw):
+    """Calculation the :py:data:`.INF_HEIGHT`
+
+    :param int dw: The display width.
+    :param int dh: The display height.
+    :param int ih: :py:data:`.INF_HEIGHT`
+    :param int sw: The snake width.
+    |
+    """
+    return  dw * ((dh-ih)//sw*4)
+
+def main(dw, dh, sw, ss):
     """The main function of 'snake' game.
 
-    :param int
-    display_width, display_height, snake_width, snake_speed : int
-
-    See Also
-    --------
-    module items
+    :param int dw: The display width.
+    :param int dh: The display height.
+    :param int sw: The snake width.
+    :param int ss: The snake speed.
+    |
     """
 
-    dw = display_width
-    dh = display_height
-    sw = snake_width
-    ss = snake_speed
     INF_HEIGHT = sw
-    X_CENTRE = dw / 2
-    Y_CENTRE = dh / 2
-    crit_l = dw * ((dh-INF_HEIGHT)//sw*4)
+    crit_l = crit_length(dw, dh, INF_HEIGHT, sw)
 
-    """Creating the main window."""
+    # Creating the main window.
     pygame.init()
     screen = pygame.display.set_mode((dw, dh))
     pygame.display.set_caption("My snake")
 
     clock = pygame.time.Clock()
 
-    """Setting snakes properties"""
+    # Setting snakes properties
     my_snake = items.Snake(sw)
     body = my_snake.get_body()
     head_pos = my_snake.get_head_pos()
 
-    """Setting other values"""
+    # Setting other values
     score = 0
     course = ""
     apple = items.Food(sw, dw, dh, INF_HEIGHT)
 
 
-    """ Creating the game cycle."""
+    # Creating the game cycle.
     state = "running"
     while state != "quit":
-        """Keys binding"""
+        # Keys binding
         for event in pygame.event.get():
             if (event.type == pygame.QUIT):
                 state = "quit"
@@ -81,11 +94,11 @@ def main(display_width, display_height, snake_width, snake_speed):
 
         if state == "running":
 
-            """Snake movement"""
+            # Snake movement
             my_snake.set_course(course, ss)
             my_snake.move()
 
-            """Snake eats food"""
+            # Snake eats food
             h_pos = my_snake.get_head_pos()
             a_pos = apple.get_pos()
             a_radius = apple.get_size() / 2
@@ -101,7 +114,7 @@ def main(display_width, display_height, snake_width, snake_speed):
                 apple.set_pos(body, sw)
                 apple.set_color()
 
-            """Collision a border."""
+            # Collision a border.
             if h_pos[0] <= 0:
                 pos = [dw, h_pos[1]]
                 my_snake.set_pos(pos)
@@ -115,7 +128,7 @@ def main(display_width, display_height, snake_width, snake_speed):
                 pos = [h_pos[0], INF_HEIGHT]
                 my_snake.set_pos(pos)
 
-            """Wasted by collision the snakes body."""
+            # Wasted by collision the snakes body.
             for i in range(sw * 2, len(body)):
                 segment = body[i]
                 pos = segment.get_pos()
@@ -124,16 +137,16 @@ def main(display_width, display_height, snake_width, snake_speed):
                     font = pygame.font.Font(None, sw)
                     text = "Your score: " + str(score)
                     message = font.render(text, True, RED)
-                    screen.blit(message, [X_CENTRE, Y_CENTRE])
+                    screen.blit(message, [dw/2, dh/2])
                     pygame.display.update()
                     time.sleep(5)
                     state = "quit"
                     break
 
-            """Frame out to the screen."""
+            # Frame out to the screen.
             screen.fill(BLACK)
 
-            """Showing current informatoin"""
+            # Showing current informatoin
             size = sw - sw // 4
             font = pygame.font.Font(None, size)
             text = "Your score: " + str(score)
@@ -144,14 +157,14 @@ def main(display_width, display_height, snake_width, snake_speed):
             pygame.draw.line(screen, YELLOW, (0, INF_HEIGHT - s_rad),
                              (dw, INF_HEIGHT - s_rad))
 
-            """Rendering snake"""
+            # Rendering snake
             for segment in body:
                 pos = segment.get_pos()
                 color = segment.get_color()
                 pygame.draw.circle(screen, color, (pos[0], pos[1]),
                                    (sw/2), 0)
 
-            """Rendering food"""
+            # Rendering food
             apple_pos = apple.get_pos()
             a_color = apple.get_color()
             pygame.draw.circle(screen, a_color, (apple_pos[0], apple_pos[1]),

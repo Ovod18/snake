@@ -1,4 +1,10 @@
-"""This module contains the main function of 'snake' game"""
+"""This module contains the main function of 'snake' game
+
+    :platform: Linux
+    :author: Ovod18
+
+    |
+"""
 
 import pygame
 import random
@@ -6,20 +12,18 @@ import time
 import math
 import items
 
-FPS = 60
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
-YELLOW = (255, 255, 0)
+#FPS = 60
+#WHITE = (255, 255, 255)
+#BLACK = (0, 0, 0)
+#RED = (255, 0, 0)
+#GREEN = (0, 255, 0)
+#BLUE = (0, 0, 255)
+#YELLOW = (255, 255, 0)
 
 def main(display_width, display_height, snake_width, snake_speed):
-    """
-    The main function of 'snake' game.
+    """The main function of 'snake' game.
 
-    Parameters
-    ----------
+    :param int
     display_width, display_height, snake_width, snake_speed : int
 
     See Also

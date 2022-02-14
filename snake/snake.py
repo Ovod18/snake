@@ -2,6 +2,7 @@
 
     :platform: Linux
     :author: Ovod18
+
     |
 """
 
@@ -26,6 +27,7 @@ YELLOW = (255, 255, 0)
 
 crit_l : int
 """The critical value of snake length.
+
     |
 """
 
@@ -36,6 +38,7 @@ def crit_length(dw, dh, ih, sw):
     :param int dh: The display height.
     :param int ih: :py:data:`.INF_HEIGHT`
     :param int sw: The snake width.
+
     |
     """
     return  dw * ((dh-ih)//sw*4)
@@ -47,6 +50,7 @@ def main(dw, dh, sw, ss):
     :param int dh: The display height.
     :param int sw: The snake width.
     :param int ss: The snake speed.
+
     |
     """
 

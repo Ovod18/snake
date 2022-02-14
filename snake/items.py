@@ -41,21 +41,33 @@ def dist(a, b):
 class Segment:
     """This class defines snake segments.
 
-    .. py:method:: get_pos()
-    .. py:method:: get_width()
-    .. py:method:: get_color()
-    .. py:method:: set_pos()
-    .. py:method:: set_width()
-    .. py:method:: set_color()
+    Methods
+
+    :py:meth:`Segment.get_pos()`
+
+    :py:meth:`Segment.get_width()`
+
+    :py:meth:`Segment.get_color()`
+
+    :py:meth:`Segment.set_pos()`
+
+    :py:meth:`Segment.set_width()`
+
+    :py:meth:`Segment.set_color()`
 
     |
 
+    Attributes
+
     .. py:attribute:: pos
+        The list of segment coordinates.
         :type: list
         :value: [100, 100]
     .. py:attribute:: width
+        The segment width.
         :type: int
     .. py:attribute:: color
+        The segment color.
         :type: tuple
         :value: 0, 255, 0
 
@@ -133,24 +145,40 @@ class Segment:
 class Snake:
     """This class defines the snake.
 
-    .. py:method:: set_course()
-    .. py:method:: move()
-    .. py:method:: set_pos(pos)
-    .. py:method:: eat()
-    .. py:method:: get_course()
-    .. py:method:: get_head_pos()
-    .. py:method:: get_body()
+    Methods
+
+    :py:meth:`Snake.set_course()`
+
+    :py:meth:`Snake.move()`
+
+    :py:meth:`Snake.set_pos(pos)`
+
+    :py:meth:`Snake.eat()`
+
+    :py:meth:`Snake.get_course()`
+
+    :py:meth:`Snake.get_head_pos()`
+
+    :py:meth:`Snake.get_body()`
 
     |
 
+    Attributes
+
     .. py:attribute:: width
+        The snake width.
         :type: int
     .. py:attribute:: segment
-        :type: object
+        The list of snake segments.
+
+    :py:class:`.Segment()`
+
     .. py:attribute:: pos_change
+        The course (pixels) of snake movement.
         :type: list[int, int]
         :value: 0, 0
     .. py:attribute:: course
+        The course (word) of snake movement.
         :type: str
         :value: 'empty'
 
@@ -271,30 +299,49 @@ class Snake:
 class Food:
     """This class describes a food.
 
-    .. py:method:: get_x()
-    .. py:method:: get_y()
-    .. py:method:: get_size()
-    .. py:method:: get_pos()
-    .. py:method:: set_size()
-    .. py:method:: set_pos()
+    Methods
+
+    :py:meth:`Food.get_x()`
+
+    :py:meth:`Food.get_y()`
+
+    :py:meth:`Food.get_size()`
+
+    :py:meth:`Food.get_pos()`
+
+    :py:meth:`Food.get_color()`
+
+    :py:meth:`Food.set_size()`
+
+    :py:meth:`Food.set_pos()`
 
     |
 
+    Attributes
+
     .. py:attribute:: size
+        The size of food.
         :type: int
     .. py:attribute:: dw
+        The display width.
         :type: int
     .. py:attribute:: dh
+        The display height.
         :type: int
     .. py:attribute:: inf height
+        The height of information line.
         :type: int
     .. py:attribute:: x
+        The x coordinate of food.
         :type: int
     .. py:attribute:: y
+        The y coordinate of food.
         :type: int
     .. py:attribute:: pos
+        The list of coordinates pos[x, y] of food.
         :type: list
     .. py:attribute:: color
+        The color of food.
         :type: tuple
         :value: 0, 255, 0
 

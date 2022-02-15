@@ -7,6 +7,7 @@
 """
 import random
 import math
+import pygame
 
 colors = ((255, 255, 255),
          (0, 0, 0),
@@ -353,32 +354,38 @@ class Food:
         self.dw = display_width
         self.dh = display_height
         self.inf_height = inf_height
-        self.__x = random.randrange(self.__size, self.dw)
-        self.__y = random.randrange(self.__size + inf_height, self.dh)
-        self.__pos = [self.__x, self.__y]
+        self.__primary_x = random.randrange(self.__size, self.dw)
+        self.__primary_y = random.randrange(self.__size + inf_height, self.dh)
+        self.__pos = [self.__primary_x, self.__primary_y]
         self.__color = (0, 255, 0)
 
-    def get_x(self):
-        """This method return x coordinate of food.
+    # drawing
+    def draw(self, scene):
+        pygame.draw.circle(scene, self.__color, (self.__pos[0], self.__pos[1]),
+                                                 self.__size/2 , 0)
 
-        :returns: x
-        :rtype: int
 
-        |
-        """
+    def get_primary_x(self):
+            """This method return x coordinate of food.
 
-        return self.__x
+            :returns: primary_x
+            :rtype: int
 
-    def get_y(self):
+            |
+            """
+
+            return self.__primary_x
+
+    def get_primary_y(self):
         """This method return y coordinate of food.
 
-        :returns: y
+        :returns: primary_y
         :rtype: int
 
         |
         """
 
-        return self.__y
+        return self.__primary_y
 
     def get_size(self):
         """This method return the size of food.

@@ -169,10 +169,7 @@ def main(dw, dh, sw, ss):
                                    (sw/2), 0)
 
             # Rendering food
-            apple_pos = apple.get_pos()
-            a_color = apple.get_color()
-            pygame.draw.circle(screen, a_color, (apple_pos[0], apple_pos[1]),
-                            apple.get_size()/2 , 0)
+            apple.draw(screen)
 
             pygame.display.update()
             clock.tick(FPS)

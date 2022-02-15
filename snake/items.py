@@ -44,6 +44,8 @@ class Segment:
 
     Methods
 
+    :py:meth:`Segment.draw()`
+
     :py:meth:`Segment.get_pos()`
 
     :py:meth:`Segment.get_width()`
@@ -79,6 +81,16 @@ class Segment:
         self.__pos = [100, 100]
         self.__width = snake_width
         self.__color = (0, 255, 0)
+
+    def draw(self, scene):
+        """This method renders a segment
+
+        :param object scene: The scene for rendering a segment(pygame.display).
+
+        |
+        """
+        pygame.draw.circle(scene, self.__color, (self.__pos[0], self.__pos[1]),
+                                            (self.__width/2), 0)
 
     def get_pos(self):
         """This method returns the position of segment.
@@ -148,6 +160,8 @@ class Snake:
 
     Methods
 
+    :py:meth:`Snake.draw()`
+
     :py:meth:`Snake.set_course()`
 
     :py:meth:`Snake.move()`
@@ -169,7 +183,7 @@ class Snake:
     .. py:attribute:: width
         The snake width.
         :type: int
-    .. py:attribute:: segment
+    .. py:attribute:: body
         The list of snake segments.
 
     :py:class:`.Segment()`
@@ -188,9 +202,18 @@ class Snake:
 
     def __init__(self, snake_width):
         self.__width = snake_width
-        self.__segment = [Segment(snake_width)]
+        self.__body = [Segment(snake_width)]
         self.__pos_change = [0, 0]
         self.__course = "empty"
+
+    def draw(self, scene):
+        """This method renders the snake body.
+
+        :param object scene: The scene for rendering the body (pygame.display).
+
+        """
+        for segment in self.__body:
+            segment.draw(scene)
 
     def set_course(self, course, speed):
         """This method sets the course of snake movement.
@@ -217,9 +240,9 @@ class Snake:
 
         |
         """
-        i = len(self.__segment) - 1
+        i = len(self.__body) - 1
         while(i > -1):
-            segment = self.__segment[i]
+            segment = self.__body[i]
             pos = segment.get_pos()
             if (i == 0):
                 x = pos[0] + self.__pos_change[0]
@@ -227,7 +250,7 @@ class Snake:
                 pos = [x, y]
                 segment.set_pos(pos)
                 break
-            p_segment = self.__segment[i - 1]
+            p_segment = self.__body[i - 1]
             pos = p_segment.get_pos()
             segment.set_pos(pos)
             i -= 1
@@ -240,7 +263,7 @@ class Snake:
         |
         """
 
-        head = self.__segment[0]
+        head = self.__body[0]
         head.set_pos(pos)
 
     def eat(self, food_size, food_color):
@@ -252,7 +275,7 @@ class Snake:
         """
 
         for i in range(food_size):
-            segment = self.__segment[-1]
+            segment = self.__body[-1]
             pos = segment.get_pos()
             x = pos[0] - self.__pos_change[0]
             y = pos[1] - self.__pos_change[1]
@@ -260,7 +283,7 @@ class Snake:
             new_segment = Segment(self.__width)
             new_segment.set_pos(new_pos)
             new_segment.set_color(food_color)
-            self.__segment.append(new_segment)
+            self.__body.append(new_segment)
 
     def get_course(self):
         """This method return current course of snake movement.
@@ -282,7 +305,7 @@ class Snake:
         |
         """
 
-        head = self.__segment[0]
+        head = self.__body[0]
         pos = head.get_pos()
         return pos
 
@@ -295,16 +318,14 @@ class Snake:
         |
         """
 
-        return self.__segment
+        return self.__body
 
 class Food:
     """This class describes a food.
 
     Methods
 
-    :py:meth:`Food.get_x()`
-
-    :py:meth:`Food.get_y()`
+    :py:meth:`Food.draw()`
 
     :py:meth:`Food.get_size()`
 
@@ -332,11 +353,11 @@ class Food:
     .. py:attribute:: inf height
         The height of information line.
         :type: int
-    .. py:attribute:: x
-        The x coordinate of food.
+    .. py:attribute:: primary_x
+        The primary x coordinate of food.
         :type: int
-    .. py:attribute:: y
-        The y coordinate of food.
+    .. py:attribute:: primary_y
+        The primary y coordinate of food.
         :type: int
     .. py:attribute:: pos
         The list of coordinates pos[x, y] of food.
@@ -361,31 +382,14 @@ class Food:
 
     # drawing
     def draw(self, scene):
-        pygame.draw.circle(scene, self.__color, (self.__pos[0], self.__pos[1]),
-                                                 self.__size/2 , 0)
+        """This method renders the food
 
-
-    def get_primary_x(self):
-            """This method return x coordinate of food.
-
-            :returns: primary_x
-            :rtype: int
-
-            |
-            """
-
-            return self.__primary_x
-
-    def get_primary_y(self):
-        """This method return y coordinate of food.
-
-        :returns: primary_y
-        :rtype: int
+        :param object scene: The scene for rendering food (pygame.display).
 
         |
         """
-
-        return self.__primary_y
+        pygame.draw.circle(scene, self.__color, (self.__pos[0], self.__pos[1]),
+                                                 self.__size/2 , 0)
 
     def get_size(self):
         """This method return the size of food.

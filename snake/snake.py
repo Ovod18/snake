@@ -162,12 +162,12 @@ def main(dw, dh, sw, ss):
                              (dw, INF_HEIGHT - s_rad))
 
             # Rendering snake
-            for segment in body:
-                pos = segment.get_pos()
-                color = segment.get_color()
-                pygame.draw.circle(screen, color, (pos[0], pos[1]),
-                                   (sw/2), 0)
-
+#           for segment in body:
+#               pos = segment.get_pos()
+#               color = segment.get_color()
+#               pygame.draw.circle(screen, color, (pos[0], pos[1]), (sw/2), 0)
+            my_snake.draw(screen)
+            
             # Rendering food
             apple.draw(screen)
 

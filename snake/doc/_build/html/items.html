@@ -53,8 +53,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class describes a food.</p>
 <p>Methods</p>
-<p><a class="reference internal" href="#items.Food.get_x" title="items.Food.get_x"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Food.get_x()</span></code></a></p>
-<p><a class="reference internal" href="#items.Food.get_y" title="items.Food.get_y"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Food.get_y()</span></code></a></p>
+<p><a class="reference internal" href="#items.Food.draw" title="items.Food.draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Food.draw()</span></code></a></p>
 <p><a class="reference internal" href="#items.Food.get_size" title="items.Food.get_size"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Food.get_size()</span></code></a></p>
 <p><a class="reference internal" href="#items.Food.get_pos" title="items.Food.get_pos"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Food.get_pos()</span></code></a></p>
 <p><a class="reference internal" href="#items.Food.get_color" title="items.Food.get_color"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Food.get_color()</span></code></a></p>
@@ -93,17 +92,17 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="items.Food.x">
-<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.Food.x" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="items.Food.primary_x">
+<span class="sig-name descname"><span class="pre">primary_x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.Food.primary_x" title="Permalink to this definition">¶</a></dt>
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">The</span> <span class="pre">x</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">food.</span></span></dt>
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">primary</span> <span class="pre">x</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">food.</span></span></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="items.Food.y">
-<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.Food.y" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="items.Food.primary_y">
+<span class="sig-name descname"><span class="pre">primary_y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.Food.primary_y" title="Permalink to this definition">¶</a></dt>
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">The</span> <span class="pre">y</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">food.</span></span></dt>
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">primary</span> <span class="pre">y</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">food.</span></span></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -123,6 +122,20 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<dl class="py method">
+<dt class="sig sig-object py" id="items.Food.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Food.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method renders the food</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scene</strong> (<em>object</em>) – The scene for rendering food (pygame.display).</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="items.Food.get_color">
 <span class="sig-name descname"><span class="pre">get_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Food.get_color" title="Permalink to this definition">¶</a></dt>
@@ -164,40 +177,6 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>size</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="items.Food.get_x">
-<span class="sig-name descname"><span class="pre">get_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Food.get_x" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method return x coordinate of food.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>x</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="items.Food.get_y">
-<span class="sig-name descname"><span class="pre">get_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Food.get_y" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method return y coordinate of food.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>y</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>int</p>
@@ -260,6 +239,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class defines snake segments.</p>
 <p>Methods</p>
+<p><a class="reference internal" href="#items.Segment.draw" title="items.Segment.draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Segment.draw()</span></code></a></p>
 <p><a class="reference internal" href="#items.Segment.get_pos" title="items.Segment.get_pos"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Segment.get_pos()</span></code></a></p>
 <p><a class="reference internal" href="#items.Segment.get_width" title="items.Segment.get_width"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Segment.get_width()</span></code></a></p>
 <p><a class="reference internal" href="#items.Segment.get_color" title="items.Segment.get_color"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Segment.get_color()</span></code></a></p>
@@ -294,6 +274,20 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<dl class="py method">
+<dt class="sig sig-object py" id="items.Segment.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method renders a segment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scene</strong> (<em>object</em>) – The scene for rendering a segment(pygame.display).</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="items.Segment.get_color">
 <span class="sig-name descname"><span class="pre">get_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment.get_color" title="Permalink to this definition">¶</a></dt>
@@ -395,6 +389,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class defines the snake.</p>
 <p>Methods</p>
+<p><a class="reference internal" href="#items.Snake.draw" title="items.Snake.draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.draw()</span></code></a></p>
 <p><a class="reference internal" href="#items.Snake.set_course" title="items.Snake.set_course"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.set_course()</span></code></a></p>
 <p><a class="reference internal" href="#items.Snake.move" title="items.Snake.move"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.move()</span></code></a></p>
 <p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.set_pos(pos)()</span></code></p>
@@ -414,8 +409,8 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="items.Snake.segment">
-<span class="sig-name descname"><span class="pre">segment</span></span><a class="headerlink" href="#items.Snake.segment" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="items.Snake.body">
+<span class="sig-name descname"><span class="pre">body</span></span><a class="headerlink" href="#items.Snake.body" title="Permalink to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">The</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">snake</span> <span class="pre">segments.</span></span></dt>
 <dd></dd></dl>
@@ -436,6 +431,17 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <dd><div class="line-block">
 <div class="line"><br /></div>
 </div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="items.Snake.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Snake.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method renders the snake body.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scene</strong> (<em>object</em>) – The scene for rendering the body (pygame.display).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

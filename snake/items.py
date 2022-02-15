@@ -489,3 +489,4 @@ class Food:
         """
         i = random.randint(2, len(colors) - 1)
         self.__color = colors[i]
+

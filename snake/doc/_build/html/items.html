@@ -47,12 +47,20 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<p>CLASSES</p>
+<p><a class="reference internal" href="#items.InfoString" title="items.InfoString"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfoString</span></code></a></p>
+<p><a class="reference internal" href="#items.Food" title="items.Food"><code class="xref py py-class docutils literal notranslate"><span class="pre">Food</span></code></a></p>
+<p><a class="reference internal" href="#items.Segment" title="items.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">Segment</span></code></a></p>
+<p><a class="reference internal" href="#items.Snake" title="items.Snake"><code class="xref py py-class docutils literal notranslate"><span class="pre">Snake</span></code></a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <dl class="py class">
 <dt class="sig sig-object py" id="items.Food">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">Food</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snake_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inf_height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Food" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class describes a food.</p>
-<p>Methods</p>
+<p>METHODS</p>
 <p><a class="reference internal" href="#items.Food.draw" title="items.Food.draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Food.draw()</span></code></a></p>
 <p><a class="reference internal" href="#items.Food.get_size" title="items.Food.get_size"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Food.get_size()</span></code></a></p>
 <p><a class="reference internal" href="#items.Food.get_pos" title="items.Food.get_pos"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Food.get_pos()</span></code></a></p>
@@ -62,7 +70,7 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Attributes</p>
+<p>ATTRIBUTES</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="items.Food.size">
 <span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.Food.size" title="Permalink to this definition">¶</a></dt>
@@ -190,7 +198,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="items.Food.set_color">
 <span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Food.set_color" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method sets color of food.i</p>
+<dd><p>This method sets color of food.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -234,11 +242,84 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="items.InfoString">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">InfoString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.InfoString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class describes the information string.</p>
+<p>METHODS</p>
+<p><a class="reference internal" href="#items.InfoString.up_score" title="items.InfoString.up_score"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InfoString.up_score()</span></code></a></p>
+<p><a class="reference internal" href="#items.InfoString.draw" title="items.InfoString.draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InfoString.draw()</span></code></a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>ATTRIBUTES</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.InfoString.h">
+<span class="sig-name descname"><span class="pre">h</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.InfoString.h" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">height</span> <span class="pre">of</span> <span class="pre">information</span> <span class="pre">string.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.InfoString.w">
+<span class="sig-name descname"><span class="pre">w</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.InfoString.w" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">width</span> <span class="pre">of</span> <span class="pre">information</span> <span class="pre">string.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.InfoString.score">
+<span class="sig-name descname"><span class="pre">score</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#items.InfoString.score" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">current</span> <span class="pre">score.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.InfoString.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">255,</span> <span class="pre">255,</span> <span class="pre">0</span></em><a class="headerlink" href="#items.InfoString.color" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">color</span> <span class="pre">of</span> <span class="pre">drawing</span> <span class="pre">information.</span></span></dt>
+<dd></dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="items.InfoString.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.InfoString.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method renders the information line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scene</strong> (<em>object</em>) – The scene for rendering food (pygame.display).</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="items.InfoString.up_score">
+<span class="sig-name descname"><span class="pre">up_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.InfoString.up_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method increases score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>int</em>) – The value of increasing score.</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="items.Segment">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">Segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snake_width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Segment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class defines snake segments.</p>
-<p>Methods</p>
+<p>METHODS</p>
 <p><a class="reference internal" href="#items.Segment.draw" title="items.Segment.draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Segment.draw()</span></code></a></p>
 <p><a class="reference internal" href="#items.Segment.get_pos" title="items.Segment.get_pos"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Segment.get_pos()</span></code></a></p>
 <p><a class="reference internal" href="#items.Segment.get_width" title="items.Segment.get_width"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Segment.get_width()</span></code></a></p>
@@ -249,7 +330,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Attributes</p>
+<p>ATTRIBUTES</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="items.Segment.pos">
 <span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[100,</span> <span class="pre">100]</span></em><a class="headerlink" href="#items.Segment.pos" title="Permalink to this definition">¶</a></dt>
@@ -388,7 +469,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">Snake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snake_width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Snake" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class defines the snake.</p>
-<p>Methods</p>
+<p>METHODS</p>
 <p><a class="reference internal" href="#items.Snake.draw" title="items.Snake.draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.draw()</span></code></a></p>
 <p><a class="reference internal" href="#items.Snake.set_course" title="items.Snake.set_course"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.set_course()</span></code></a></p>
 <p><a class="reference internal" href="#items.Snake.move" title="items.Snake.move"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.move()</span></code></a></p>
@@ -400,7 +481,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Attributes</p>
+<p>ATTRIBUTES</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="items.Snake.width">
 <span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.Snake.width" title="Permalink to this definition">¶</a></dt>
@@ -654,7 +735,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
       &copy;2022, Ovod18.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

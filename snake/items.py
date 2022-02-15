@@ -4,6 +4,18 @@
 :author: Ovod18
 
 |
+
+CLASSES
+
+:py:class:`.InfoString`
+
+:py:class:`.Food`
+
+:py:class:`.Segment`
+
+:py:class:`.Snake`
+
+|
 """
 import random
 import math
@@ -42,7 +54,7 @@ def dist(a, b):
 class Segment:
     """This class defines snake segments.
 
-    Methods
+    METHODS
 
     :py:meth:`Segment.draw()`
 
@@ -60,7 +72,7 @@ class Segment:
 
     |
 
-    Attributes
+    ATTRIBUTES
 
     .. py:attribute:: pos
         The list of segment coordinates.
@@ -158,7 +170,7 @@ class Segment:
 class Snake:
     """This class defines the snake.
 
-    Methods
+    METHODS
 
     :py:meth:`Snake.draw()`
 
@@ -178,7 +190,7 @@ class Snake:
 
     |
 
-    Attributes
+    ATTRIBUTES
 
     .. py:attribute:: width
         The snake width.
@@ -323,7 +335,7 @@ class Snake:
 class Food:
     """This class describes a food.
 
-    Methods
+    METHODS
 
     :py:meth:`Food.draw()`
 
@@ -339,7 +351,7 @@ class Food:
 
     |
 
-    Attributes
+    ATTRIBUTES
 
     .. py:attribute:: size
         The size of food.
@@ -368,7 +380,7 @@ class Food:
         :value: 0, 255, 0
 
     |
-   """
+    """
 
     def __init__(self, snake_width, display_width, display_height, inf_height):
         self.__size = snake_width // 3
@@ -380,7 +392,6 @@ class Food:
         self.__pos = [self.__primary_x, self.__primary_y]
         self.__color = (0, 255, 0)
 
-    # drawing
     def draw(self, scene):
         """This method renders the food
 
@@ -389,7 +400,7 @@ class Food:
         |
         """
         pygame.draw.circle(scene, self.__color, (self.__pos[0], self.__pos[1]),
-                                                 self.__size/2 , 0)
+                                             self.__size/2 , 0)
 
     def get_size(self):
         """This method return the size of food.
@@ -483,10 +494,73 @@ class Food:
         self.__pos = p
 
     def set_color(self):
-        """This method sets color of food.i
+        """This method sets color of food.
 
         |
         """
+
         i = random.randint(2, len(colors) - 1)
         self.__color = colors[i]
 
+class InfoString:
+    """This class describes the information string.
+
+    METHODS
+
+    :py:meth:`InfoString.up_score()`
+
+    :py:meth:`InfoString.draw()`
+
+    |
+
+    ATTRIBUTES
+
+    .. py:attribute:: h
+        The height of information string.
+        :type: int
+    .. py:attribute:: w
+        The width of information string.
+        :type: int
+    .. py:attribute:: score
+        The current score.
+        :type: int
+        :value: 0
+    .. py:attribute:: color
+        The color of drawing information.
+        :type: tuple
+        :value: 255, 255, 0
+
+    |
+    """
+
+    def __init__(self, dw, sw):
+        self.__h = sw
+        self.__w = dw
+        self.__score = 0
+        self.__color = (255, 255, 0)
+
+    def up_score(self, value):
+        """This method increases score.
+
+        :param int value: The value of increasing score.
+
+        |
+        """
+
+        self.__score += value
+
+    def draw(self, scene):
+        """This method renders the information line.
+
+        :param object scene: The scene for rendering food (pygame.display).
+
+        |
+        """
+
+        size = self.__h - self.__h // 4
+        font = pygame.font.Font(None, size)
+        text = "Your score: " + str(self.__score)
+        message = font.render(text, True, self.__color)
+        scene.blit(message, [0, 0])
+        pygame.draw.line(scene, self.__color, (0, self.__h - self.__h/2),
+                                (self.__w, self.__h - self.__h/2))

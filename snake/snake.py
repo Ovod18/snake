@@ -70,10 +70,9 @@ def main(dw, dh, sw, ss):
     head_pos = my_snake.get_head_pos()
 
     # Setting other values
-    score = 0
     course = ""
     apple = items.Food(sw, dw, dh, INF_HEIGHT)
-
+    info = items.InfoString(dw, sw)
 
     # Creating the game cycle.
     state = "running"
@@ -110,7 +109,7 @@ def main(dw, dh, sw, ss):
             if d < (sw / 2):
                 color = apple.get_color()
                 my_snake.eat(apple.get_size(), color)
-                score += int(apple.get_size())
+                info.up_score(apple.get_size())
                 if (len(my_snake.get_body()) < crit_l):
                     apple.set_size(sw, "r")
                 else:
@@ -147,19 +146,11 @@ def main(dw, dh, sw, ss):
                     state = "quit"
                     break
 
-            # Frame out to the screen.
+            # Draw the screen with black color.
             screen.fill(BLACK)
 
-            # Showing current informatoin
-            size = sw - sw // 4
-            font = pygame.font.Font(None, size)
-            text = "Your score: " + str(score)
-            message = font.render(text, True, YELLOW)
-            screen.blit(message, [0, 0])
-
-            s_rad = sw / 2
-            pygame.draw.line(screen, YELLOW, (0, INF_HEIGHT - s_rad),
-                             (dw, INF_HEIGHT - s_rad))
+            # Rendering info string
+            info.draw(screen)
 
             # Rendering snake
             my_snake.draw(screen)

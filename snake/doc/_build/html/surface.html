@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>surface module &#8212; snake  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="snake module" href="snake.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-surface">
+<span id="surface-module"></span><h1>surface module<a class="headerlink" href="#module-surface" title="Permalink to this headline">¶</a></h1>
+<p>This module contains surfaces for snake game</p>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Linux</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>Ovod18</p>
+</dd>
+</dl>
+<p>CLASSES</p>
+<p><a class="reference internal" href="#surface.PlayGround" title="surface.PlayGround"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlayGround</span></code></a></p>
+<p><a class="reference internal" href="#surface.InfoString" title="surface.InfoString"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfoString</span></code></a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="surface.InfoString">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surface.</span></span><span class="sig-name descname"><span class="pre">InfoString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surface.InfoString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class describes the information string.</p>
+<p>METHODS</p>
+<p><a class="reference internal" href="#surface.InfoString.up_score" title="surface.InfoString.up_score"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InfoString.up_score()</span></code></a></p>
+<p><a class="reference internal" href="#surface.InfoString.draw" title="surface.InfoString.draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InfoString.draw()</span></code></a></p>
+<p><a class="reference internal" href="#surface.InfoString.get_size" title="surface.InfoString.get_size"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InfoString.get_size()</span></code></a></p>
+<p><a class="reference internal" href="#surface.InfoString.get_score" title="surface.InfoString.get_score"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InfoString.get_score()</span></code></a>
+|</p>
+<p>ATTRIBUTES</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.InfoString.h">
+<span class="sig-name descname"><span class="pre">h</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#surface.InfoString.h" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">height</span> <span class="pre">of</span> <span class="pre">information</span> <span class="pre">string.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.InfoString.w">
+<span class="sig-name descname"><span class="pre">w</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#surface.InfoString.w" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">width</span> <span class="pre">of</span> <span class="pre">information</span> <span class="pre">string.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.InfoString.size">
+<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#surface.InfoString.size" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">tuple</span> <span class="pre">like</span> <span class="pre">(w,</span> <span class="pre">h)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.InfoString.score">
+<span class="sig-name descname"><span class="pre">score</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#surface.InfoString.score" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">current</span> <span class="pre">score.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.InfoString.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">255,</span> <span class="pre">255,</span> <span class="pre">0</span></em><a class="headerlink" href="#surface.InfoString.color" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">color</span> <span class="pre">of</span> <span class="pre">drawing</span> <span class="pre">information.</span></span></dt>
+<dd></dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="surface.InfoString.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surface.InfoString.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method renders the information line.
+:param object scene: The scene for rendering food (pygame.display).</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surface.InfoString.get_score">
+<span class="sig-name descname"><span class="pre">get_score</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surface.InfoString.get_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>score</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surface.InfoString.get_size">
+<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surface.InfoString.get_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the width and the height of the info string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>size</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple(int, int)</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surface.InfoString.up_score">
+<span class="sig-name descname"><span class="pre">up_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surface.InfoString.up_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method increases score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>int</em>) – The value of increasing score.</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surface.PlayGround">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surface.</span></span><span class="sig-name descname"><span class="pre">PlayGround</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#surface.PlayGround" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class describes the playing ground.</p>
+<p>METHODS</p>
+<p><a class="reference internal" href="#surface.PlayGround.get_pos" title="surface.PlayGround.get_pos"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PlayGround.get_pos()</span></code></a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>ATTRIBUTES</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.PlayGround.self.__x0">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">__x0</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#surface.PlayGround.self.__x0" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">initial</span> <span class="pre">X</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.PlayGround.self.__y0">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">__y0</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#surface.PlayGround.self.__y0" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">initial</span> <span class="pre">Y</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.PlayGround.self.__x">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">__x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#surface.PlayGround.self.__x" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">final</span> <span class="pre">X</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.PlayGround.self.__y">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">__y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#surface.PlayGround.self.__y" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">final</span> <span class="pre">Y</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surface.PlayGround.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple((int,</span> <span class="pre">int),</span> <span class="pre">(int,</span> <span class="pre">int))</span></em><a class="headerlink" href="#surface.PlayGround.pos" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">tuple,</span> <span class="pre">which</span> <span class="pre">contains</span> <span class="pre">initial</span> <span class="pre">and</span> <span class="pre">final</span> <span class="pre">coordinates</span> <span class="pre">of</span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="surface.PlayGround.get_pos">
+<span class="sig-name descname"><span class="pre">get_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#surface.PlayGround.get_pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the coordinates of playing ground.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the tuple, which contains initial and final coordinates.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple((int, int), (int, int))</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">snake</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">snake</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="items.html">items module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snake.html">snake module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">surface module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">snake</a><ul>
+      <li>Previous: <a href="snake.html" title="previous chapter">snake module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Ovod18.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/surface.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

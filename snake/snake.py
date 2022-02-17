@@ -11,6 +11,7 @@ import random
 import time
 import math
 import items
+import surface
 
 FPS = 60
 INF_HEIGHT : int
@@ -73,8 +74,8 @@ def main(dw, dh, sw, ss):
     # Setting other values
     course = ""
     apple = items.Food(sw, dw, dh, INF_HEIGHT)
-    info = items.InfoString(screen, sw)
-    play_ground = items.PlayGround(screen, info)
+    info = surface.InfoString(screen, sw)
+    play_ground = surface.PlayGround(screen, info)
 
     # Creating the game cycle.
     state = "running"
@@ -126,7 +127,7 @@ def main(dw, dh, sw, ss):
                 d = items.dist(pos, h_pos)
                 if d < sw:
                     font = pygame.font.Font(None, sw)
-                    text = "Your score: " + str(score)
+                    text = "Your score: " + str(info.get_score())
                     message = font.render(text, True, RED)
                     screen.blit(message, [dw/2, dh/2])
                     pygame.display.update()

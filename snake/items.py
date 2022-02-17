@@ -247,11 +247,12 @@ class Snake:
         elif self.__course == "DOWN":
             self.__pos_change =[0, step]
 
-    def move(self):
+    def move(self, play_ground):
         """This method defines snake movement.
 
         |
         """
+
         i = len(self.__body) - 1
         while(i > -1):
             segment = self.__body[i]
@@ -266,6 +267,28 @@ class Snake:
             pos = p_segment.get_pos()
             segment.set_pos(pos)
             i -= 1
+##################################################
+        p_g_pos = play_ground.get_pos()
+        x = 0
+        y = 1
+        top = p_g_pos[0][y]
+        bottom = p_g_pos[1][y]
+        left = p_g_pos[0][x]
+        right = p_g_pos[1][x]
+        head = self.__body[0]
+        head_pos = head.get_pos()
+        if head_pos[x] <= left:
+            new_pos = [right, head_pos[y]]
+            head.set_pos(new_pos)
+        elif head_pos[x] >= right:
+            new_pos = [left, head_pos[y]]
+            head.set_pos(new_pos)
+        if head_pos[y] <= top:
+            new_pos = [head_pos[x], bottom]
+            head.set_pos(new_pos)
+        elif head_pos[y] >= bottom:
+            new_pos = [head_pos[x], top]
+            head.set_pos(new_pos)
 
     def set_pos(self, pos):
         """This method sets position of snake head.

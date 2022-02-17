@@ -74,6 +74,7 @@ def main(dw, dh, sw, ss):
     course = ""
     apple = items.Food(sw, dw, dh, INF_HEIGHT)
     info = items.InfoString(screen, sw)
+    play_ground = items.PlayGround(screen, info)
 
     # Creating the game cycle.
     state = "running"
@@ -100,7 +101,7 @@ def main(dw, dh, sw, ss):
 
             # Snake movement
             my_snake.set_course(course, ss)
-            my_snake.move()
+            my_snake.move(play_ground)
 
             # Snake eats food
             h_pos = my_snake.get_head_pos()
@@ -117,20 +118,6 @@ def main(dw, dh, sw, ss):
                     apple.set_size(sw, 0)
                 apple.set_pos(body, sw)
                 apple.set_color()
-
-            # Collision a border.
-            if h_pos[0] <= 0:
-                pos = [dw, h_pos[1]]
-                my_snake.set_pos(pos)
-            elif h_pos[0] >= dw:
-                pos = [0, h_pos[1]]
-                my_snake.set_pos(pos)
-            if h_pos[1] <= INF_HEIGHT:
-                pos = [h_pos[0], dh]
-                my_snake.set_pos(pos)
-            elif h_pos[1] >= dh:
-                pos = [h_pos[0], INF_HEIGHT]
-                my_snake.set_pos(pos)
 
             # Wasted by collision the snakes body.
             for i in range(sw * 2, len(body)):

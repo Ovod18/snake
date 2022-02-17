@@ -73,7 +73,7 @@ def main(dw, dh, sw, ss):
     # Setting other values
     course = ""
     apple = items.Food(sw, dw, dh, INF_HEIGHT)
-    info = items.InfoString(dw, sw)
+    info = items.InfoString(screen, sw)
 
     # Creating the game cycle.
     state = "running"

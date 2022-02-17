@@ -243,7 +243,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="items.InfoString">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">InfoString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.InfoString" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">InfoString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.InfoString" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class describes the information string.</p>
 <p>METHODS</p>
@@ -341,8 +341,72 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="items.PlayGround">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">PlayGround</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.PlayGround" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">PlayGround</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.PlayGround" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class describes the playing ground.</p>
+<p>METHODS</p>
+<p><a class="reference internal" href="#items.PlayGround.get_pos" title="items.PlayGround.get_pos"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PlayGround.get_pos()</span></code></a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>ATTRIBUTES</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.PlayGround.self.__x0">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">__x0</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.PlayGround.self.__x0" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">initial</span> <span class="pre">X</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.PlayGround.self.__y0">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">__y0</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.PlayGround.self.__y0" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">initial</span> <span class="pre">Y</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.PlayGround.self.__x">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">__x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.PlayGround.self.__x" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">final</span> <span class="pre">X</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.PlayGround.self.__y">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">__y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.PlayGround.self.__y" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">final</span> <span class="pre">Y</span> <span class="pre">coordinate</span> <span class="pre">of</span> <span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.PlayGround.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple((int,</span> <span class="pre">int),</span> <span class="pre">(int,</span> <span class="pre">int))</span></em><a class="headerlink" href="#items.PlayGround.pos" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">tuple,</span> <span class="pre">which</span> <span class="pre">contains</span> <span class="pre">initial</span> <span class="pre">and</span> <span class="pre">final</span> <span class="pre">coordinates</span> <span class="pre">of</span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">playing</span> <span class="pre">ground.</span></span></dt>
+<dd></dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="items.PlayGround.get_pos">
+<span class="sig-name descname"><span class="pre">get_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.PlayGround.get_pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the coordinates of playing ground.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the tuple, which contains initial and final coordinates.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple((int, int), (int, int))</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">

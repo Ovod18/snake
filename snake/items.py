@@ -538,9 +538,10 @@ class InfoString:
     |
     """
 
-    def __init__(self, dw, sw):
+    def __init__(self, scene, sw):
+        scene_size = scene.get_size()
         self.__h = sw
-        self.__w = dw
+        self.__w = scene_size[0]
         self.__size = (self.__w, self.__h)
         self.__score = 0
         self.__color = (255, 255, 0)
@@ -582,11 +583,53 @@ class InfoString:
 
         return self.__size
 
-#class PlayGround:
-#
-#    def __init__(self, info_string):
-       # info_size = info_string.get_size()
-       # self.__x0 = 0
-       # self.__y0 = info_size[1]
-       # self.__x =
-       # self.__y =
+class PlayGround:
+    """This class describes the playing ground.
+
+    METHODS
+
+    :py:meth:`PlayGround.get_pos()`
+
+    |
+
+    ATTRIBUTES
+
+    .. py:attribute:: self.__x0
+        The initial X coordinate of playing ground.
+        :type: int
+    .. py:attribute:: self.__y0
+        The initial Y coordinate of playing ground.
+        :type: int
+    .. py:attribute:: self.__x
+        The final X coordinate of playing ground.
+        :type: int
+    .. py:attribute:: self.__y
+        The final Y coordinate of playing ground.
+        :type: int
+    .. py:attribute:: pos
+        The tuple, which contains initial and final coordinates of
+        playing ground.
+        :type: tuple((int, int), (int, int))
+
+    |
+    """
+
+    def __init__(self, scene, info_string):
+        info_size = info_string.get_size()
+        scene_size = scene.get_size()
+        self.__x0 = 0
+        self.__y0 = info_size[1] + 1
+        self.__x = scene_size[0]
+        self.__y = scene_size[1]
+        self.__pos = ((self.__x0, self.__y0),
+                      (self.__x, self.__y))
+
+    def get_pos(self):
+        """This method returns the coordinates of playing ground.
+
+        :returns: the tuple, which contains initial and final coordinates.
+        :rtype: tuple((int, int), (int, int))
+
+        |
+        """
+        return self.__pos

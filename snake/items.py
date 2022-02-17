@@ -511,6 +511,8 @@ class InfoString:
 
     :py:meth:`InfoString.draw()`
 
+    :py:meth:`InfoString.get_size()`
+
     |
 
     ATTRIBUTES
@@ -521,6 +523,9 @@ class InfoString:
     .. py:attribute:: w
         The width of information string.
         :type: int
+    .. py:attribute:: size
+        The tuple like (w, h)
+        :type: tuple
     .. py:attribute:: score
         The current score.
         :type: int
@@ -536,6 +541,7 @@ class InfoString:
     def __init__(self, dw, sw):
         self.__h = sw
         self.__w = dw
+        self.__size = (self.__w, self.__h)
         self.__score = 0
         self.__color = (255, 255, 0)
 
@@ -564,3 +570,23 @@ class InfoString:
         scene.blit(message, [0, 0])
         pygame.draw.line(scene, self.__color, (0, self.__h - self.__h/2),
                                 (self.__w, self.__h - self.__h/2))
+
+    def get_size(self):
+        """This method returns the width and the height of the info string.
+
+        :returns: size
+        :rtype: tuple(int, int)
+
+        |
+        """
+
+        return self.__size
+
+#class PlayGround:
+#
+#    def __init__(self, info_string):
+       # info_size = info_string.get_size()
+       # self.__x0 = 0
+       # self.__y0 = info_size[1]
+       # self.__x =
+       # self.__y =

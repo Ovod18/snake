@@ -15,6 +15,7 @@ import items
 FPS = 60
 INF_HEIGHT : int
 """The information line height.
+
     |
 """
 

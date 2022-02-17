@@ -249,6 +249,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <p>METHODS</p>
 <p><a class="reference internal" href="#items.InfoString.up_score" title="items.InfoString.up_score"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InfoString.up_score()</span></code></a></p>
 <p><a class="reference internal" href="#items.InfoString.draw" title="items.InfoString.draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InfoString.draw()</span></code></a></p>
+<p><a class="reference internal" href="#items.InfoString.get_size" title="items.InfoString.get_size"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InfoString.get_size()</span></code></a></p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -265,6 +266,13 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <span class="sig-name descname"><span class="pre">w</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#items.InfoString.w" title="Permalink to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">The</span> <span class="pre">width</span> <span class="pre">of</span> <span class="pre">information</span> <span class="pre">string.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.InfoString.size">
+<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#items.InfoString.size" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">tuple</span> <span class="pre">like</span> <span class="pre">(w,</span> <span class="pre">h)</span></span></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -299,6 +307,23 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="items.InfoString.get_size">
+<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.InfoString.get_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the width and the height of the info string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>size</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple(int, int)</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="items.InfoString.up_score">
 <span class="sig-name descname"><span class="pre">up_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.InfoString.up_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method increases score.</p>
@@ -312,6 +337,12 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 </div>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="items.PlayGround">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">items.</span></span><span class="sig-name descname"><span class="pre">PlayGround</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.PlayGround" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
 
 <dl class="py class">
@@ -735,7 +766,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
       &copy;2022, Ovod18.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -27,24 +27,6 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
-crit_l : int
-"""The critical value of snake length.
-
-    |
-"""
-
-def crit_length(dw, dh, ih, sw):
-    """Calculation the :py:data:`.INF_HEIGHT`
-
-    :param int dw: The display width.
-    :param int dh: The display height.
-    :param int ih: :py:data:`.INF_HEIGHT`
-    :param int sw: The snake width.
-
-    |
-    """
-    return  dw * ((dh-ih)//sw*4)
-
 def main(dw, dh, sw, ss):
     """The main function of 'snake' game.
 
@@ -57,7 +39,6 @@ def main(dw, dh, sw, ss):
     """
 
     INF_HEIGHT = sw
-    crit_l = crit_length(dw, dh, INF_HEIGHT, sw)
 
     # Creating the main window.
     pygame.init()
@@ -113,7 +94,9 @@ def main(dw, dh, sw, ss):
                 color = apple.get_color()
                 my_snake.eat(apple.get_size(), color)
                 info.up_score(apple.get_size())
-                if (len(my_snake.get_body()) < crit_l):
+
+                #if snake is very big
+                if not my_snake.is_crit_len(play_ground):
                     apple.set_size(sw, "r")
                 else:
                     apple.set_size(sw, 0)
@@ -127,7 +110,7 @@ def main(dw, dh, sw, ss):
                 d = items.dist(pos, h_pos)
                 if d < sw:
                     font = pygame.font.Font(None, sw)
-                    text = "Your score: " + str(info.get_score())
+                    text = "WASTED"
                     message = font.render(text, True, RED)
                     screen.blit(message, [dw/2, dh/2])
                     pygame.display.update()

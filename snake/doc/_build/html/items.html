@@ -48,7 +48,6 @@
 <div class="line"><br /></div>
 </div>
 <p>CLASSES</p>
-<p><a class="reference internal" href="surface.html#surface.InfoString" title="surface.InfoString"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfoString</span></code></a></p>
 <p><a class="reference internal" href="#items.Food" title="items.Food"><code class="xref py py-class docutils literal notranslate"><span class="pre">Food</span></code></a></p>
 <p><a class="reference internal" href="#items.Segment" title="items.Segment"><code class="xref py py-class docutils literal notranslate"><span class="pre">Segment</span></code></a></p>
 <p><a class="reference internal" href="#items.Snake" title="items.Snake"><code class="xref py py-class docutils literal notranslate"><span class="pre">Snake</span></code></a></p>
@@ -405,6 +404,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <p><a class="reference internal" href="#items.Snake.get_course" title="items.Snake.get_course"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.get_course()</span></code></a></p>
 <p><a class="reference internal" href="#items.Snake.get_head_pos" title="items.Snake.get_head_pos"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.get_head_pos()</span></code></a></p>
 <p><a class="reference internal" href="#items.Snake.get_body" title="items.Snake.get_body"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.get_body()</span></code></a></p>
+<p><a class="reference internal" href="#items.Snake.is_crit_len" title="items.Snake.is_crit_len"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.is_crit_len()</span></code></a></p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -510,6 +510,26 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>list[int, int]</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="items.Snake.is_crit_len">
+<span class="sig-name descname"><span class="pre">is_crit_len</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Snake.is_crit_len" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method chekcs wether the length of the snake is critical.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scene</strong> (<em>object</em>) – The play ground.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True or False</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>boolean</p>
 </dd>
 </dl>
 <div class="line-block">

@@ -7,8 +7,6 @@
 
 CLASSES
 
-:py:class:`.InfoString`
-
 :py:class:`.Food`
 
 :py:class:`.Segment`
@@ -188,6 +186,8 @@ class Snake:
 
     :py:meth:`Snake.get_body()`
 
+    :py:meth:`Snake.is_crit_len()`
+
     |
 
     ATTRIBUTES
@@ -217,6 +217,24 @@ class Snake:
         self.__body = [Segment(snake_width)]
         self.__pos_change = [0, 0]
         self.__course = "empty"
+
+    def is_crit_len(self, scene):
+        """This method chekcs wether the length of the snake is critical.
+
+        :param object scene: The play ground.
+        :returns: True or False
+        :rtype: boolean
+
+        |
+        """
+        scene_size = scene.get_size()
+        scene_width = scene_size[0]
+        scene_height = scene_size[1]
+        crit_len = scene_width * scene_height // self.__width * 4
+        if len(self.__body) >= crit_len:
+            return True
+        else:
+            return False
 
     def draw(self, scene):
         """This method renders the snake body.
@@ -270,6 +288,7 @@ class Snake:
             segment.set_pos(pos)
             i -= 1
 
+        # collision with borders
         p_g_pos = play_ground.get_pos()
         x = 0
         y = 1

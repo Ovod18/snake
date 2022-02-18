@@ -21,6 +21,8 @@ class PlayGround:
 
     :py:meth:`PlayGround.get_pos()`
 
+    :py:meth:`PlayGround.get_size()`
+
     |
 
     ATTRIBUTES
@@ -41,6 +43,12 @@ class PlayGround:
         The tuple, which contains initial and final coordinates of
         playing ground.
         :type: tuple((int, int), (int, int))
+    .. py:attribute:: w
+        The play ground width.
+        :type: int
+    .. py:attribute:: h
+        The play ground height.
+        :type: int
 
     |
     """
@@ -54,6 +62,19 @@ class PlayGround:
         self.__y = scene_size[1]
         self.__pos = ((self.__x0, self.__y0),
         (self.__x, self.__y))
+        self.__w = self.__x - self.__x0
+        self.__h = self.__y - self.__y0
+
+    def get_size(self):
+        """This method returns the width and the height of play ground.
+
+        :returns: size
+        :rtype: tuple
+
+        |
+        """
+        size = (self.__w, self.__h)
+        return size
 
     def get_pos(self):
         """This method returns the coordinates of playing ground.

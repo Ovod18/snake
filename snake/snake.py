@@ -87,7 +87,7 @@ def main(dw, dh, sw, ss):
                 my_snake.eat(apple)
                 info.up_score(apple.get_size())
 
-                #if snake is very big
+                # If snake is very big
                 if not my_snake.is_crit_len(play_ground):
                     apple.set_size(my_snake, "r")
                 else:

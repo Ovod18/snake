@@ -14,7 +14,6 @@ import items
 import surface
 
 FPS = 60
-INF_HEIGHT : int
 """The information line height.
 
     |
@@ -38,8 +37,6 @@ def main(dw, dh, sw, ss):
     |
     """
 
-    INF_HEIGHT = sw
-
     # Creating the main window.
     pygame.init()
     screen = pygame.display.set_mode((dw, dh))
@@ -54,9 +51,9 @@ def main(dw, dh, sw, ss):
 
     # Setting other values
     course = ""
-    apple = items.Food(sw, dw, dh, INF_HEIGHT)
     info = surface.InfoString(screen, sw)
     play_ground = surface.PlayGround(screen, info)
+    apple = items.Food(play_ground, my_snake)
 
     # Creating the game cycle.
     state = "running"
@@ -86,21 +83,16 @@ def main(dw, dh, sw, ss):
             my_snake.move(play_ground)
 
             # Snake eats food
-            h_pos = my_snake.get_head_pos()
-            a_pos = apple.get_pos()
-            a_radius = apple.get_size() / 2
-            d = items.dist(a_pos, h_pos)
-            if d < (sw / 2):
-                color = apple.get_color()
-                my_snake.eat(apple.get_size(), color)
+            if my_snake.food_is_near(apple):
+                my_snake.eat(apple)
                 info.up_score(apple.get_size())
 
                 #if snake is very big
                 if not my_snake.is_crit_len(play_ground):
-                    apple.set_size(sw, "r")
+                    apple.set_size(my_snake, "r")
                 else:
-                    apple.set_size(sw, 0)
-                apple.set_pos(body, sw)
+                    apple.set_size(my_snake, 0)
+                apple.set_pos(play_ground, my_snake)
                 apple.set_color()
 
             # Wasted by collision the snakes body.

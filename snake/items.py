@@ -190,6 +190,10 @@ class Snake:
 
     :py:meth:`Snake.is_collision_with_body()`
 
+    :py:meth:`Snake.food_is_near()`
+
+    :py:meth:`Snake.get_width()`
+
     |
 
     ATTRIBUTES
@@ -219,6 +223,29 @@ class Snake:
         self.__body = [Segment(snake_width)]
         self.__pos_change = [0, 0]
         self.__course = "empty"
+
+    def get_width(self):
+        """This method returns the snake width.
+
+        :returns: snake width
+        :rtype: int
+        """
+        return self.__width
+
+    def food_is_near(self, food):
+        """This method checks the distance between the snake and food.
+
+        :return: True or False
+        :rtype: boolean
+
+        |
+        """
+        head_pos = self.get_head_pos()
+        food_pos = food.get_pos()
+        if dist(head_pos, food_pos) < self.__width / 2:
+            return True
+        else:
+            return False
 
     def is_collision_with_body(self):
         """This method checks the collision with snake body
@@ -343,14 +370,15 @@ class Snake:
         head = self.__body[0]
         head.set_pos(pos)
 
-    def eat(self, food_size, food_color):
+    def eat(self, food):
         """This method defines eating snake food.
 
         :param int food_size: The size of food.
 
         |
         """
-
+        food_size = food.get_size()
+        food_color = food.get_color()
         for i in range(food_size):
             segment = self.__body[-1]
             pos = segment.get_pos()
@@ -421,15 +449,6 @@ class Food:
     .. py:attribute:: size
         The size of food.
         :type: int
-    .. py:attribute:: dw
-        The display width.
-        :type: int
-    .. py:attribute:: dh
-        The display height.
-        :type: int
-    .. py:attribute:: inf height
-        The height of information line.
-        :type: int
     .. py:attribute:: primary_x
         The primary x coordinate of food.
         :type: int
@@ -447,13 +466,13 @@ class Food:
     |
     """
 
-    def __init__(self, snake_width, display_width, display_height, inf_height):
-        self.__size = snake_width // 3
-        self.dw = display_width
-        self.dh = display_height
-        self.inf_height = inf_height
-        self.__primary_x = random.randrange(self.__size, self.dw)
-        self.__primary_y = random.randrange(self.__size + inf_height, self.dh)
+    def __init__(self, play_ground, snake):
+        self.__size = snake.get_width() // 3
+        p_g_pos = play_ground.get_pos()
+        self.__primary_x = random.randrange(p_g_pos[0][0] + self.__size,
+                                            p_g_pos[1][0] - self.__size)
+        self.__primary_y = random.randrange(p_g_pos[0][1] + self.__size,
+                                            p_g_pos[1][1] - self.__size)
         self.__pos = [self.__primary_x, self.__primary_y]
         self.__color = (0, 255, 0)
 
@@ -493,9 +512,9 @@ class Food:
         """This method sets the size of food.
 
         args : int
-            args contain the snake width, the food size.
-            snake width: int
-            food size : int, str
+            args contain the snake, the food size.
+            snake : object
+            food size : int or str
             The food size maybe int value in range(2) or 'r'.
             If the food size is 'r' then self.__size will be random value
             in (sw // 3, sw // 2, sw), where sw is the snake width.
@@ -503,7 +522,8 @@ class Food:
         |
         """
 
-        sw = args[0]
+        snake = args[0]
+        sw = snake.get_width()
         if args[1] == "r":
             r = True
         else :
@@ -528,23 +548,23 @@ class Food:
 
         return self.__color
 
-    def set_pos(self, snake_body, snake_width):
+    def set_pos(self, play_ground, snake):
         """This method sets position of food.
-
-        :param int snake_width: The width of snake.
-        :param list snake_body: The list of segment objects.
 
         |
         """
 
-        sw = snake_width
+        sw = snake.get_width()
+        snake_body = snake.get_body()
         near = sw / 2 + self.__size
+        p_g_pos = play_ground.get_pos()
         pos_valid = False
         while 1 < 2:
             count = 0
-            x = random.randrange(self.__size, (self.dw-self.__size))
-            y = random.randrange(self.inf_height+self.__size,
-                                 (self.dh-self.__size))
+            x = random.randrange(p_g_pos[0][0] + self.__size,
+                                 p_g_pos[1][0] - self.__size)
+            y = random.randrange(p_g_pos[0][1] + self.__size,
+                                 p_g_pos[1][1] - self.__size)
             p = [x, y]
             for i in range(len(snake_body)):
                 segment = snake_body[i]

@@ -116,13 +116,8 @@ def main(dw, dh, sw, ss):
             # Draw the screen with black color.
             screen.fill(BLACK)
 
-            # Rendering info string
             info.draw(screen)
-
-            # Rendering snake
             my_snake.draw(screen)
-
-            # Rendering food
             apple.draw(screen)
 
             pygame.display.update()

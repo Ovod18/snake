@@ -104,19 +104,14 @@ def main(dw, dh, sw, ss):
                 apple.set_color()
 
             # Wasted by collision the snakes body.
-            for i in range(sw * 2, len(body)):
-                segment = body[i]
-                pos = segment.get_pos()
-                d = items.dist(pos, h_pos)
-                if d < sw:
-                    font = pygame.font.Font(None, sw)
-                    text = "WASTED"
-                    message = font.render(text, True, RED)
-                    screen.blit(message, [dw/2, dh/2])
-                    pygame.display.update()
-                    time.sleep(5)
-                    state = "quit"
-                    break
+            if my_snake.is_collision_with_body():
+                font = pygame.font.Font(None, sw)
+                text = "WASTED"
+                message = font.render(text, True, RED)
+                screen.blit(message, [dw/2, dh/2])
+                pygame.display.update()
+                time.sleep(5)
+                state = "quit"
 
             # Draw the screen with black color.
             screen.fill(BLACK)

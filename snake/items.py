@@ -188,6 +188,8 @@ class Snake:
 
     :py:meth:`Snake.is_crit_len()`
 
+    :py:meth:`Snake.is_collision_with_body()`
+
     |
 
     ATTRIBUTES
@@ -217,6 +219,25 @@ class Snake:
         self.__body = [Segment(snake_width)]
         self.__pos_change = [0, 0]
         self.__course = "empty"
+
+    def is_collision_with_body(self):
+        """This method checks the collision with snake body
+
+        :return: True or False
+        :rtype: boolean
+
+        |
+        """
+        head_pos = self.get_head_pos()
+        count = 0
+        for i in range(self.__width * 2, len(self.__body)):
+            segment = self.__body[i]
+            if dist(segment.get_pos(), head_pos) < self.__width:
+               count += 1
+        if count != 0:
+            return True
+        else:
+            return False
 
     def is_crit_len(self, scene):
         """This method chekcs wether the length of the snake is critical.

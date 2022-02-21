@@ -379,6 +379,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <p><a class="reference internal" href="#items.Snake.is_collision_with_body" title="items.Snake.is_collision_with_body"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.is_collision_with_body()</span></code></a></p>
 <p><a class="reference internal" href="#items.Snake.food_is_near" title="items.Snake.food_is_near"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.food_is_near()</span></code></a></p>
 <p><a class="reference internal" href="#items.Snake.get_width" title="items.Snake.get_width"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.get_width()</span></code></a></p>
+<p><a class="reference internal" href="#items.Snake.grow" title="items.Snake.grow"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Snake.grow()</span></code></a></p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -410,6 +411,13 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <span class="sig-name descname"><span class="pre">course</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'empty'</span></em><a class="headerlink" href="#items.Snake.course" title="Permalink to this definition">¶</a></dt>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">The</span> <span class="pre">course</span> <span class="pre">(word)</span> <span class="pre">of</span> <span class="pre">snake</span> <span class="pre">movement.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="items.Snake.eaten_food">
+<span class="sig-name descname"><span class="pre">eaten_food</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#items.Snake.eaten_food" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">eaten</span> <span class="pre">food</span></span></dt>
 <dd><div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -429,10 +437,10 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="items.Snake.eat">
 <span class="sig-name descname"><span class="pre">eat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">food</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Snake.eat" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method defines eating snake food.</p>
+<dd><p>This method defines eating food.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>food_size</strong> (<em>int</em>) – The size of food.</p>
+<dd class="field-odd"><p><strong>food</strong> (<em>object</em>) – Eaten food.</p>
 </dd>
 </dl>
 <div class="line-block">
@@ -523,6 +531,15 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="items.Snake.grow">
+<span class="sig-name descname"><span class="pre">grow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Snake.grow" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method defines the snake growing.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="items.Snake.is_collision_with_body">
 <span class="sig-name descname"><span class="pre">is_collision_with_body</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#items.Snake.is_collision_with_body" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method checks the collision with snake body</p>
@@ -593,7 +610,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="items.Snake.set_pos">
 <span class="sig-name descname"><span class="pre">set_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#items.Snake.set_pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method sets position of snake head.</p>
+<dd><p>This method sets position of the snake head.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pos</strong> (<em>list</em>) – pos[int, int] is list of coordinates.</p>
@@ -710,7 +727,7 @@ in (sw // 3, sw // 2, sw), where sw is the snake width.</p>
       &copy;2022, Ovod18.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

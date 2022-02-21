@@ -17,6 +17,7 @@ CLASSES
 """
 import random
 import math
+import copy
 import pygame
 
 colors = ((255, 255, 255),
@@ -194,6 +195,8 @@ class Snake:
 
     :py:meth:`Snake.get_width()`
 
+    :py:meth:`Snake.grow()`
+
     |
 
     ATTRIBUTES
@@ -214,6 +217,9 @@ class Snake:
         The course (word) of snake movement.
         :type: str
         :value: 'empty'
+    .. py:attribute:: eaten_food
+        The list of eaten food
+        :type: list[object]
 
         |
     """
@@ -223,6 +229,7 @@ class Snake:
         self.__body = [Segment(snake_width)]
         self.__pos_change = [0, 0]
         self.__course = "empty"
+        self.__eaten_food = []
 
     def get_width(self):
         """This method returns the snake width.
@@ -322,20 +329,28 @@ class Snake:
         """
 
         i = len(self.__body) - 1
+        last_segment = self.__body[i]
+        last_segment_pos = last_segment.get_pos()
+        if len(self.__eaten_food) > 0:
+            eaten_food_pos = self.__eaten_food[0][0].get_pos()
+            w = last_segment.get_width()
+            if dist(last_segment_pos, eaten_food_pos) < w:
+                self.grow()
         while(i > -1):
             segment = self.__body[i]
             pos = segment.get_pos()
+            # move the head
             if (i == 0):
                 x = pos[0] + self.__pos_change[0]
                 y = pos[1] + self.__pos_change[1]
                 pos = [x, y]
                 segment.set_pos(pos)
                 break
+            # move the body
             p_segment = self.__body[i - 1]
             pos = p_segment.get_pos()
             segment.set_pos(pos)
             i -= 1
-
         # collision with borders
         p_g_pos = play_ground.get_pos()
         x = 0
@@ -360,7 +375,7 @@ class Snake:
             head.set_pos(new_pos)
 
     def set_pos(self, pos):
-        """This method sets position of snake head.
+        """This method sets position of the snake head.
 
         :param list pos: pos[int, int] is list of coordinates.
 
@@ -371,24 +386,33 @@ class Snake:
         head.set_pos(pos)
 
     def eat(self, food):
-        """This method defines eating snake food.
+        """This method defines eating food.
 
-        :param int food_size: The size of food.
+        :param object food: Eaten food.
 
         |
         """
-        food_size = food.get_size()
-        food_color = food.get_color()
-        for i in range(food_size):
-            segment = self.__body[-1]
-            pos = segment.get_pos()
-            x = pos[0] - self.__pos_change[0]
-            y = pos[1] - self.__pos_change[1]
-            new_pos = [x, y]
-            new_segment = Segment(self.__width)
-            new_segment.set_pos(new_pos)
-            new_segment.set_color(food_color)
-            self.__body.append(new_segment)
+
+        new_eaten_food = copy.deepcopy(food)
+        size = food.get_size()
+        self.__eaten_food.append([new_eaten_food, size])
+
+    def grow(self):
+        """This method defines the snake growing.
+
+        |
+        """
+        size = self.__eaten_food[0][0].get_size()
+        color = self.__eaten_food[0][0].get_color()
+        new_pos = self.__body[-1].get_pos()
+        new_segment = Segment(self.__width)
+        new_segment.set_pos(new_pos)
+        new_segment.set_color(color)
+        self.__body.append(new_segment)
+        self.__eaten_food[0][1] -= 1
+        if self.__eaten_food[0][1] == 0:
+            self.__eaten_food.pop(0)
+
 
     def get_course(self):
         """This method return current course of snake movement.

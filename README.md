@@ -2,7 +2,7 @@ The snake game
 
 Installation
 
-    Linux:
+    Linux which uses apt (Debian, Ubuntu):
 
         sudo apt install python3
 

@@ -4,11 +4,11 @@ Installation
 
     Linux which uses apt (Debian, Ubuntu):
 
-        sudo apt install python3
+        apt install python3
 
-        pip install tkinter
+        apt install python3-tk
 
-        pip install pygame
+        pip3 install pygame
 
         git clone https://github.com/Ovod18/snake
 
@@ -18,7 +18,7 @@ Usage
 
 Dependencies
 
-    Python >= 3.10
+    Python >= 3.9
     Tkinter >= 8.6
     Pygame >= 2.1.2
 
